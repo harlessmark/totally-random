@@ -9,7 +9,7 @@ All numbers are _inclusive_.
 ### Importing
 
 ```
-import { TotallyRandom } from "./index.js";
+import { TotallyRandom } from "totally-random";
 const random = new TotallyRandom();
 ```
 
