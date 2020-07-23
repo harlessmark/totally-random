@@ -20,7 +20,7 @@ class TotallyRandom {
 	}
 
 	fromArray(arr, count = 1) {
-		if (num === 1) {
+		if (count === 1) {
 			// returns random element from array
 			return arr[Math.floor(Math.random() * arr.length)];
 		} else {
