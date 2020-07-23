@@ -2,27 +2,63 @@
 
 A utility class to help with random number generation.
 
-## Installing
+## Usage
 
-A step by step series of examples that tell you how to get a development env running
+All numbers are _inclusive_.
 
-Say what the step will be
-
-```
-Give the example
-```
-
-And repeat
+### Importing
 
 ```
-until finished
+import { TotallyRandom } from "./index.js";
+const random = new TotallyRandom();
 ```
 
-## Built With
+### Between 1 and num
 
-- [Dropwizard](http://www.dropwizard.io/1.0.2/docs/) - The web framework used
-- [Maven](https://maven.apache.org/) - Dependency Management
-- [ROME](https://rometools.github.io/rome/) - Used to generate RSS Feeds
+```
+random.to(10)
+// 1-10
+
+random.to(-99)
+// (-1)-(-99)
+```
+
+### Between 2 numbers
+
+```
+random.range(25, 50)
+// 25-50
+
+random.range(100, 200, 3)
+// [100-200, 100-200, 100-200]
+```
+
+### From an array
+
+```
+random.fromArray(['Paul', 'Chani', 'Gurney'])
+// Paul, Chani, or Gurney
+
+random.fromArray(['Paul', 'Chani', 'Gurney'], 5)
+// returns an array of 5 randomly selected elements from array
+```
+
+### Percentage
+
+```
+random.percent()
+// 0-100
+```
+
+### Color
+
+```
+random.color()
+// #3bf93d
+
+random.color('rgb')
+// rgb(61, 134, 160)
+```
 
 ## License
 
