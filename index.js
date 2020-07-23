@@ -68,4 +68,4 @@ class TotallyRandom {
 	}
 }
 
-module.exports.TotallyRandom;
+module.exports = TotallyRandom;
