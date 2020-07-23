@@ -68,4 +68,4 @@ class TotallyRandom {
 	}
 }
 
-export default SuperRandom;
+module.exports.TotallyRandom;
