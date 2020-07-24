@@ -8,14 +8,14 @@ All numbers are _inclusive_.
 
 ### Importing
 
-```
+```javascript
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 ```
 
 ### Between 1 and num
 
-```
+```javascript
 random.to(10)
 // 1-10
 
@@ -25,7 +25,7 @@ random.to(-99)
 
 ### Between 2 numbers
 
-```
+```javascript
 random.range(25, 50)
 // 25-50
 
@@ -35,7 +35,7 @@ random.range(100, 200, 3)
 
 ### From an array
 
-```
+```javascript
 random.fromArray(['Paul', 'Chani', 'Gurney'])
 // Paul, Chani, or Gurney
 
@@ -45,14 +45,14 @@ random.fromArray(['Paul', 'Chani', 'Gurney'], 5)
 
 ### Percentage
 
-```
+```javascript
 random.percent()
 // 0-100
 ```
 
 ### Color
 
-```
+```javascript
 random.color()
 // #3bf93d
 
