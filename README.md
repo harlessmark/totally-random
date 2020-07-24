@@ -60,6 +60,17 @@ random.color('rgb')
 // rgb(61, 134, 160)
 ```
 
+### Random Position
+```javascript
+random.positionOnScreen();
+/*
+{
+  top: '54 vw',
+  left: '32 vh'
+}
+*/
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
