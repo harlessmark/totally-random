@@ -19,6 +19,14 @@ class TotallyRandom {
 		}
 	}
 
+	positionOnScreen() {
+		const position = {
+			top: `${this.range(1, 100)} vw`,
+			left: `${this.range(1, 100)} vh`
+		}
+		return position;
+	}
+
 	fromArray(arr, count = 1) {
 		if (count === 1) {
 			// returns random element from array
