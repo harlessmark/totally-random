@@ -21,8 +21,8 @@ class TotallyRandom {
 
 	positionOnScreen() {
 		const position = {
-			top: `${this.range(1, 99)} vw`,
-			left: `${this.range(1, 99)} vh`
+			top: `${this.range(1, 100)} vw`,
+			left: `${this.range(1, 100)} vh`
 		}
 		return position;
 	}
