@@ -12,7 +12,7 @@ All numbers are _inclusive_.
 const TotallyRandom = require("totally-random");
 const random = new TotallyRandom();
 ```
-
+You can also import this package from [unpkg](https://unpkg.com/browse/totally-random@1.0.6/) for browser use.
 ### Between 1 and num
 
 ```javascript
