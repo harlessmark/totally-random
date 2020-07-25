@@ -65,6 +65,14 @@ class TotallyRandom {
 		}
 	}
 
+	fromObj(obj, count = 1) {
+		var a = [];
+		for (let i in obj) {
+			a.push(i);
+		}
+		return this.fromArray(a, count);
+	}
+
 	to(num) {
 		if (num > 0) {
 			// returns a number between 1 and num

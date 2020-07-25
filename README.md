@@ -73,6 +73,15 @@ random.positionOnScreen();
 }
 */
 ```
+### Object
+
+```javascript
+random.fromObj({ a: 4, b : 3, g: 2});
+// a, b, g
+
+random.fromObj({ a: 4, b : 3, g: 2}, 3);
+// array of 3 random items from obj
+```
 
 ## License
 
