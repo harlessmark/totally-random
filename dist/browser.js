@@ -75,3 +75,5 @@ class TotallyRandom {
 		}
 	}
 }
+
+export TotallyRandom;
