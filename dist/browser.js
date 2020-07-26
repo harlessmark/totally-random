@@ -3,7 +3,7 @@ class TotallyRandom {
 	color(option = "hex") {
 		if (option === "hex") {
 			// returns random hex code
-			return `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`;
+			return `#${((Math.random() * 0xffffff) << 0).toString(16)}`;
 		} else if (option === "rgb") {
 			// returns random rgb color (string)
 			return `rgb(${this.range(0, 255)}, ${this.range(0, 255)}, ${this.range(
@@ -16,8 +16,8 @@ class TotallyRandom {
 	positionOnScreen() {
 		const position = {
 			top: `${this.range(1, 100)} vw`,
-			left: `${this.range(1, 100)} vh`
-		}
+			left: `${this.range(1, 100)} vh`,
+		};
 		return position;
 	}
 
@@ -60,7 +60,7 @@ class TotallyRandom {
 	}
 
 	string(length = 16, type = "alphanumeric") {
-		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"]; 
+		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
 
@@ -70,16 +70,18 @@ class TotallyRandom {
 		}
 
 		const generator = (arr, len) => {
-			return [...Array(len)].map(ltr => arr[Math.random() * arr.length | 0]).join('');
-		}
+			return [...Array(len)]
+				.map(ltr => arr[(Math.random() * arr.length) | 0])
+				.join("");
+		};
 
-		switch(type) {
+		switch (type) {
 			case "alpha":
-			return generator(alphas, length);
+				return generator(alphas, length);
 			case "alphanumeric":
-			return generator(alphanums, length);
+				return generator(alphanums, length);
 			case "numeric":
-			return generator(nums, length);
+				return generator(nums, length);
 		}
 	}
 
@@ -94,4 +96,4 @@ class TotallyRandom {
 	}
 }
 
-export TotallyRandom;
+module.exports = TotallyRandom;
