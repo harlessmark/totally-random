@@ -95,7 +95,7 @@ random.string(5, "alpha");
 
 ## Contributing
 
-Pull requests are welcome if they are related to some sort of random generator. For major changes, please open an issue first to discuss what you would like to change.
+Pull requests are welcome if they are related to practical random generation. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
