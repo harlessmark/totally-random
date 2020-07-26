@@ -96,4 +96,4 @@ class TotallyRandom {
 	}
 }
 
-module.exports = TotallyRandom;
+export default TotallyRandom;
