@@ -83,15 +83,19 @@ random.string();
 random.string(5);
 // returns an alphanumeric 5 character string, ex: Us8dP
 
-random.string("alpha")
+random.string("alpha");
 // returns an alpha-only 16 character string, ex: DCjWSnSOuSjKKqok
 
-random.string("numeric")
+random.string("numeric");
 // returns a numeric-only 16 character string, ex: 9386263812837196
 
-random.string(5, "alpha")
+random.string(5, "alpha");
 // returns an alpha-only 5 character string, ex: ajmRm
 ```
+
+## Contributing
+
+Pull requests are welcome if they are related to some sort of random generator. For major changes, please open an issue first to discuss what you would like to change.
 
 ## License
 
