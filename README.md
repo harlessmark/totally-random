@@ -15,6 +15,8 @@ const random = new TotallyRandom();
 
 You can also import this package from [unpkg](https://unpkg.com/browse/totally-random/) for browser use.
 
+If you use some API or other techniques to get more random numbers, you can supply your own function in the constructor. It must return a floating point number between 0 and 1, not including 1.
+
 ### Between 1 and num
 
 ```javascript
