@@ -22,8 +22,8 @@ class TotallyRandom {
 	positionOnScreen() {
 		const position = {
 			top: `${this.range(1, 100)} vw`,
-			left: `${this.range(1, 100)} vh`,
-		};
+			left: `${this.range(1, 100)} vh`
+		}
 		return position;
 	}
 
@@ -70,13 +70,13 @@ class TotallyRandom {
 		for (let i in obj) {
 			a.push(i);
 		}
-		return this.fromArray(a, count);
+		var item = this.fromArray(a, count);
+		return {key: item, value: obj[item]};
 	}
 
 	to(num) {
 		if (num > 0) {
 			// returns a number between 1 and num
-			// TODO: this works easier? Math.floor(Math.random() * Math.floor(max));
 			return Math.floor(Math.ceil(Math.random() * num + 1) - 1);
 		} else if (num < 0) {
 			// returns a number between -1 and num
@@ -85,4 +85,4 @@ class TotallyRandom {
 	}
 }
 
-module.exports = TotallyRandom;
+module.exports TotallyRandom;

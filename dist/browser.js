@@ -70,7 +70,8 @@ class TotallyRandom {
 		for (let i in obj) {
 			a.push(i);
 		}
-		return this.fromArray(a, count);
+		var item = this.fromArray(a, count);
+		return {key: item, value: obj[item]};
 	}
 
 	to(num) {
