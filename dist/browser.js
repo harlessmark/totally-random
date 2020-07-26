@@ -59,7 +59,7 @@ class TotallyRandom {
 		}
 	}
 
-	string({length = 16, type = "alphanumeric"}) {
+	string(length = 16, type = "alphanumeric") {
 		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"]; 
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
