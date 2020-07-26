@@ -3,13 +3,7 @@ class TotallyRandom {
 	color(option = "hex") {
 		if (option === "hex") {
 			// returns random hex code
-			const arr = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, "a", "b", "c", "d", "e", "f"];
-			let hex = "#";
-
-			let items = this.fromArray(arr, 6);
-			items.forEach(item => (hex += item));
-
-			return hex;
+			return `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`;
 		} else if (option === "rgb") {
 			// returns random rgb color (string)
 			return `rgb(${this.range(0, 255)}, ${this.range(0, 255)}, ${this.range(
@@ -62,6 +56,30 @@ class TotallyRandom {
 			}
 
 			return arr;
+		}
+	}
+
+	string(length = 16, type = "alphanumeric") {
+		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"]; 
+		const nums = [..."0123456789"];
+		const alphanums = [...alphas, ...nums];
+
+		if (isNaN(length)) {
+			type = length;
+			length = 16;
+		}
+
+		const generator = (arr, len) => {
+			return [...Array(len)].map(ltr => arr[Math.random() * arr.length | 0]).join('');
+		}
+
+		switch(type) {
+			case "alpha":
+			return generator(alphas, length);
+			case "alphanumeric":
+			return generator(alphanums, length);
+			case "numeric":
+			return generator(nums, length);
 		}
 	}
 

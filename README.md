@@ -74,6 +74,25 @@ random.positionOnScreen();
 */
 ```
 
+### String
+
+```javascript
+random.string();
+// returns an alphanumeric 16 character string, ex: hX4XHE2M6eyE9XM1
+
+random.string(5);
+// returns an alphanumeric 5 character string, ex: Us8dP
+
+random.string("alpha")
+// returns an alpha-only 16 character string, ex: DCjWSnSOuSjKKqok
+
+random.string("numeric")
+// returns a numeric-only 16 character string, ex: 9386263812837196
+
+random.string(5, "alpha")
+// returns an alpha-only 5 character string, ex: ajmRm
+```
+
 ## License
 
 This project is licensed under the [MIT License](LICENSE).
