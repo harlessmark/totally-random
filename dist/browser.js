@@ -59,6 +59,30 @@ class TotallyRandom {
 		}
 	}
 
+	string({length = 16, type = "alphanumeric"}) {
+		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"]; 
+		const nums = [..."0123456789"];
+		const alphanums = [...alphas, ...nums];
+
+		if (isNaN(length)) {
+			type = length;
+			length = 16;
+		}
+
+		const generator = (arr, len) => {
+			return [...Array(len)].map(ltr => arr[Math.random() * arr.length | 0]).join('');
+		}
+
+		switch(type) {
+			case "alpha":
+			return generator(alphas, length);
+			case "alphanumeric":
+			return generator(alphanums, length);
+			case "numeric":
+			return generator(nums, length);
+		}
+	}
+
 	to(num) {
 		if (num > 0) {
 			// returns a number between 1 and num
