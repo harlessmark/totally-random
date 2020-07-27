@@ -6,8 +6,7 @@ class TotallyRandom {
 	}
 
   /** 
-   * Return a number, or array of numbers, within a given range
-   * @method between
+   * @method between - Return a number, or array of numbers, within a given range
    * @param {Number} num1 - The beginning number of the range
    * @param {Number} num2 - The ending number of the range
    * @param {Number} [count=1] - The amount of numbers in the array (Optional)
@@ -31,8 +30,7 @@ class TotallyRandom {
   }
   
   /**
-   * Return a boolean or array of booleans
-   * @method boolean
+   * @method boolean - Return a boolean or array of booleans
    * @param {Number} [count=1] - The amount of booleans in the array (Optional)
    * @returns {(Boolean|Array)} - A random boolean, or array of booleans of given length [count]
    */
@@ -58,8 +56,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a Hex code, RGB, RGBA, HSL, or HSLA value color
-   * @method color
+   * @method color - Return a Hex code, RGB, RGBA, HSL, or HSLA value color
    * @param {String} [option="hex"] - Flag to change output type, valid options are: "hex", "rgb", "rgba", "hsl", "hsla" (Optional)
    * @returns {String} - A random Hex, RGB, RGBA, HSL, or HSLA color value
    */  
@@ -101,8 +98,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a random element, or array of a given count of random elements, from a given array
-   * @method from
+   * @method from - Return a random element, or array of a given count of random elements, from a given array
    * @param {Array} arr - Array containing values
    * @param {Number} [count=1] - Amount of elements to include in the output array (Optional)
    * @returns {(Element|Array)} - A random element from [arr], or array of random elements of given length [count] from [arr]
@@ -124,8 +120,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a random percentage value
-   * @method percent
+   * @method percent - Return a random percentage value
    * @returns {Number} - A number between 0 and 100
    */
 	percent() {
@@ -133,8 +128,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a shuffled version of a given array using the Fisher-Yates Algorithm
-   * @method shuffle
+   * @method shuffle - Return a shuffled version of a given array using the Fisher-Yates Algorithm
    * @param {Array} arr - Array of values to shuffle
    * @returns {Array} - A shuffled version of [arr]
    */
@@ -152,8 +146,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a random string
-   * @method string
+   * @method string - Return a random string
    * @param {Number} [count=16] - Specifies the length of the string (Optional)
    * @param {String} [type="alphanumeric"] - Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (Optional)
    * @returns {String} - A random string
@@ -186,8 +179,7 @@ class TotallyRandom {
 	}
 
   /**
-   * Return a random number between 1 or -1 and a given number
-   * @method to
+   * @method to - Return a random number between 1 or -1 and a given number
    * @param {Number} num - The max number of the range
    * @returns {Number} - A number between 1 or -1 and [num]
    */
