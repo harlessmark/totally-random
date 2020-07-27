@@ -77,6 +77,20 @@ class TotallyRandom {
 		return Math.round(this.randomFunction() * 100);
 	}
 
+	shuffle(arr) {
+		// shuffles an array (Fisher-Yates algorithm)
+		let j, x, i;
+
+		for (i = arr.length - 1; i > 0; i--) {
+			j = Math.floor(this.randomFunction() * (i + 1));
+			x = arr[i];
+			arr[i] = arr[j];
+			arr[j] = x;
+		}
+
+		return arr;
+	}
+
 	string(length = 16, type = "alphanumeric") {
 		// alpha/numeric generator
 		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
