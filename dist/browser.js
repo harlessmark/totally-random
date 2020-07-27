@@ -3,29 +3,21 @@ class TotallyRandom {
 	constructor(randomFunction = Math.random) {
 		this.randomFunction = randomFunction;
 	}
-	
+
 	color(option = "hex") {
 		if (option === "hex") {
 			// returns random hex code
-			return `#${(this.randomFunction() * 0xFFFFFF << 0).toString(16)}`;
+			return `#${((this.randomFunction() * 0xffffff) << 0).toString(16)}`;
 		} else if (option === "rgb") {
 			// returns random rgb color (string)
-			return `rgb(${this.range(0, 255)}, ${this.range(0, 255)}, ${this.range(
-				0,
-				255
-			)})`;
+			return `rgb(
+				${this.between(0, 255)}, 
+				${this.between(0, 255)}, 
+				${this.between(0, 255)})`;
 		}
 	}
 
-	positionOnScreen() {
-		const position = {
-			top: `${this.range(1, 100)} vw`,
-			left: `${this.range(1, 100)} vh`,
-		};
-		return position;
-	}
-
-	fromArray(arr, count = 1) {
+	from(arr, count = 1) {
 		if (count === 1) {
 			// returns random element from array
 			return arr[Math.floor(this.randomFunction() * arr.length)];
@@ -46,7 +38,7 @@ class TotallyRandom {
 		return Math.round(this.randomFunction() * 100);
 	}
 
-	range(num1, num2, count = 1) {
+	between(num1, num2, count = 1) {
 		if (count === 1) {
 			// returns a random number(s) between passed numbers (inclusive)
 			return Math.round(this.randomFunction() * (num1 - num2) + num2);
@@ -64,7 +56,8 @@ class TotallyRandom {
 	}
 
 	string(length = 16, type = "alphanumeric") {
-		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"]; 
+		// alpha/numeric generator
+		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
 
@@ -74,23 +67,24 @@ class TotallyRandom {
 		}
 
 		const generator = (arr, len) => {
-			return [...Array(len)].map(ltr => arr[this.randomFunction() * arr.length | 0]).join('');
-		}
+			return [...Array(len)]
+				.map(ltr => arr[(this.randomFunction() * arr.length) | 0])
+				.join("");
+		};
 
-		switch(type) {
+		switch (type) {
 			case "alpha":
-			return generator(alphas, length);
+				return generator(alphas, length);
 			case "alphanumeric":
-			return generator(alphanums, length);
+				return generator(alphanums, length);
 			case "numeric":
-			return generator(nums, length);
+				return generator(nums, length);
 		}
 	}
 
 	to(num) {
 		if (num > 0) {
 			// returns a number between 1 and num
-			// TODO: this works easier? Math.floor(Math.random() * Math.floor(max));
 			return Math.floor(Math.ceil(this.randomFunction() * num + 1) - 1);
 		} else if (num < 0) {
 			// returns a number between -1 and num
