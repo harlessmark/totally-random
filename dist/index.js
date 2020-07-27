@@ -1,5 +1,23 @@
 class TotallyRandom {
 	// all numbers are inclusive
+	// alphabetical order
+	between(num1, num2, count = 1) {
+		if (count === 1) {
+			// returns a random number(s) between passed numbers (inclusive)
+			return Math.round(this.randomFunction() * (num1 - num2) + num2);
+		} else if (count > 1) {
+			let arr = [];
+
+			for (let i = 0; i < count; i++) {
+				// returns an array of count numbers
+				const num = Math.round(this.randomFunction() * (num1 - num2) + num2);
+				arr.push(num);
+			}
+
+			return arr;
+		}
+	}
+
 	constructor(randomFunction = Math.random) {
 		this.randomFunction = randomFunction;
 	}
@@ -36,23 +54,6 @@ class TotallyRandom {
 	percent() {
 		// returns a number between 0-100
 		return Math.round(this.randomFunction() * 100);
-	}
-
-	between(num1, num2, count = 1) {
-		if (count === 1) {
-			// returns a random number(s) between passed numbers (inclusive)
-			return Math.round(this.randomFunction() * (num1 - num2) + num2);
-		} else if (count > 1) {
-			let arr = [];
-
-			for (let i = 0; i < count; i++) {
-				// returns an array of count numbers
-				const num = Math.round(this.randomFunction() * (num1 - num2) + num2);
-				arr.push(num);
-			}
-
-			return arr;
-		}
 	}
 
 	string(length = 16, type = "alphanumeric") {
