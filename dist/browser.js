@@ -65,13 +65,13 @@ class TotallyRandom {
 		} else if (option === "hsl") {
 			// returns random hsl color (string)
 			return `hsl(
-				${this.to(360)},
+				${this.between(0, 360)},
 				${this.percent()}%,
 				${this.percent()}%
 			)`;
 		} else {
 			return `hsla(
-				${this.to(360)},
+				${this.between(0, 360)},
 				${this.percent()}%,
 				${this.percent()}%,
 				${this.randomFunction().toFixed(2)}
