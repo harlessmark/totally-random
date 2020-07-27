@@ -22,6 +22,27 @@ class TotallyRandom {
 		}
 	}
 
+	boolean(count = 1) {
+		// returns a random boolean(s)
+		if (this.to(2) === 1 && count === 1) {
+			return true;
+		} else if (this.to(2) === 2 && count === 1) {
+			return false;
+		} else {
+			let arr = [];
+
+			for (let i = 0; i < count + 1; i++) {
+				if (this.to(2) === 1) {
+					arr.push(true);
+				} else if (this.to(2) === 2) {
+					arr.push(false);
+				}
+			}
+
+			return arr;
+		}
+	}
+
 	color(option = "hex") {
 		if (option === "hex") {
 			// returns random hex code
