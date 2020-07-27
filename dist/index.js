@@ -52,7 +52,30 @@ class TotallyRandom {
 			return `rgb(
 				${this.between(0, 255)}, 
 				${this.between(0, 255)}, 
-				${this.between(0, 255)})`;
+				${this.between(0, 255)}
+			)`;
+		} else if (option === "rgba") {
+			// returns random rgba color (string)
+			return `rgba(
+				${this.between(0, 255)}, 
+				${this.between(0, 255)}, 
+				${this.between(0, 255)},
+				${this.randomFunction().toFixed(2)}
+			)`;
+		} else if (option === "hsl") {
+			// returns random hsl color (string)
+			return `hsl(
+				${this.to(360)},
+				${this.percent()}%,
+				${this.percent()}%
+			)`;
+		} else {
+			return `hsla(
+				${this.to(360)},
+				${this.percent()}%,
+				${this.percent()}%,
+				${this.randomFunction().toFixed(2)}
+			)`;
 		}
 	}
 
