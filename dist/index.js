@@ -1,9 +1,13 @@
 class TotallyRandom {
 	// all numbers are inclusive
+	constructor(randomFunction = Math.random) {
+		this.randomFunction = randomFunction;
+	}
+	
 	color(option = "hex") {
 		if (option === "hex") {
 			// returns random hex code
-			return `#${(Math.random() * 0xFFFFFF << 0).toString(16)}`;
+			return `#${(this.randomFunction() * 0xFFFFFF << 0).toString(16)}`;
 		} else if (option === "rgb") {
 			// returns random rgb color (string)
 			return `rgb(${this.range(0, 255)}, ${this.range(0, 255)}, ${this.range(
@@ -24,13 +28,13 @@ class TotallyRandom {
 	fromArray(arr, count = 1) {
 		if (count === 1) {
 			// returns random element from array
-			return arr[Math.floor(Math.random() * arr.length)];
+			return arr[Math.floor(this.randomFunction() * arr.length)];
 		} else {
 			// returns an array of count elements
 			let newArr = [];
 
 			for (let i = 0; i < count; i++) {
-				newArr.push(arr[Math.floor(Math.random() * arr.length)]);
+				newArr.push(arr[Math.floor(this.randomFunction() * arr.length)]);
 			}
 
 			return newArr;
@@ -39,19 +43,19 @@ class TotallyRandom {
 
 	percent() {
 		// returns a number between 0-100
-		return Math.round(Math.random() * 100);
+		return Math.round(this.randomFunction() * 100);
 	}
 
 	range(num1, num2, count = 1) {
 		if (count === 1) {
 			// returns a random number(s) between passed numbers (inclusive)
-			return Math.round(Math.random() * (num1 - num2) + num2);
+			return Math.round(this.randomFunction() * (num1 - num2) + num2);
 		} else if (count > 1) {
 			let arr = [];
 
 			for (let i = 0; i < count; i++) {
 				// returns an array of count numbers
-				const num = Math.round(Math.random() * (num1 - num2) + num2);
+				const num = Math.round(this.randomFunction() * (num1 - num2) + num2);
 				arr.push(num);
 			}
 
@@ -70,7 +74,7 @@ class TotallyRandom {
 		}
 
 		const generator = (arr, len) => {
-			return [...Array(len)].map(ltr => arr[Math.random() * arr.length | 0]).join('');
+			return [...Array(len)].map(ltr => arr[this.randomFunction() * arr.length | 0]).join('');
 		}
 
 		switch(type) {
@@ -87,10 +91,10 @@ class TotallyRandom {
 		if (num > 0) {
 			// returns a number between 1 and num
 			// TODO: this works easier? Math.floor(Math.random() * Math.floor(max));
-			return Math.floor(Math.ceil(Math.random() * num + 1) - 1);
+			return Math.floor(Math.ceil(this.randomFunction() * num + 1) - 1);
 		} else if (num < 0) {
 			// returns a number between -1 and num
-			return Math.floor(Math.ceil(Math.random() * num) - 1);
+			return Math.floor(Math.ceil(this.randomFunction() * num) - 1);
 		}
 	}
 }
