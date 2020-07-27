@@ -1,6 +1,10 @@
 class TotallyRandom {
 	// all numbers are inclusive
 	// alphabetical order
+	constructor(randomFunction = Math.random) {
+		this.randomFunction = randomFunction;
+	}
+
 	between(num1, num2, count = 1) {
 		if (count === 1) {
 			// returns a random number(s) between passed numbers (inclusive)
@@ -16,10 +20,6 @@ class TotallyRandom {
 
 			return arr;
 		}
-	}
-
-	constructor(randomFunction = Math.random) {
-		this.randomFunction = randomFunction;
 	}
 
 	color(option = "hex") {
