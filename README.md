@@ -106,7 +106,7 @@ random.percent();
 // 27
 ```
 
-### `.shuffle(arr)`
+### Shuffle - `.shuffle(arr)`
 Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
 #### Parameters
