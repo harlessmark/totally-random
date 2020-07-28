@@ -116,6 +116,8 @@ Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
 #### Example
 ```javascript
+random.shuffle([1, 2, 3, 4, 5]);
+// [3, 5, 2, 1, 4]
 ```
 
 ### String - `.string([length = 16], [option = "alphanumeric"])`
