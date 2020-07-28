@@ -194,4 +194,6 @@ class TotallyRandom {
 	}
 }
 
+TotallyRandom.prototype.colour = TotallyRandom.prototype.color;
+
 module.exports = TotallyRandom;

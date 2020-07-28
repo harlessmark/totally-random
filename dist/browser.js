@@ -194,4 +194,6 @@ class TotallyRandom {
 	}
 }
 
+TotallyRandom.prototype.colour = TotallyRandom.prototype.color;
+
 export default TotallyRandom;
