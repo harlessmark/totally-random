@@ -1,6 +1,6 @@
-# totally-random
+# TotallyRandom
 
-A utility class to help with random number generation.
+A utility class to help with random value generation.
 
 ---
 
@@ -22,27 +22,50 @@ You may also import this package from [unpkg](https://unpkg.com/browse/totally-r
 ---
 ## Usage
 
-All numbers are _inclusive_. Optional parameters are in `[ ]`
+All numbers are _inclusive_.
 
-### `.between()`
-Returns a random number between two specified numbers.
+### Between - `.between(num1, num2, [count = 1])`
+Return a number, or array of numbers, within a given range.
 
-Requires two parameters: the beginning number and the ending number of the range. 
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| num1             | Number | The beginning number of the range        |
+| num2             | Number | The ending number of the range           |
+| count (Optional) | Number | The amount of numbers to include in the returned array. Default = 1|
 
-Accepts an optional third parameter, an array length, which allows it to return an array containing the specified number of random numbers.
-
+#### Example
 ```javascript
-random.range(25, 50);
+random.between(25, 50);
 // 34
 
-random.range(100, 200, 3);
+random.between(100, 200, 3);
 // [192, 125, 167]
 ```
 
-### `.boolean()`
+### Boolean - `.boolean([count = 1])`
+Return a boolean or array or booleans
 
-### `.color()`
-Returns a random color in the form of a hex value or RGB value.
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| count (Optional) | Number | The amount of booleans to include in the returned array. Default = 1 |
+
+#### Example
+```javascript
+random.boolean();
+// false
+
+random.boolean(5);
+// [true, false, false, true, false]
+```
+
+### Color - `.color([option = "hex"])`
+Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
+
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| option (Optional) | String | The type of color value you would like returned. Default = "hex". Valid options: "hex", "rgb", "rgba", "hsl", "hsla" |
 
 #### Example
 ```javascript
@@ -51,14 +74,19 @@ random.color();
 
 random.color("rgb");
 // rgb(61, 134, 160)
+
+random.color("hsl");
+// hsl(326, 87%, 43%)
 ```
 
-### `.from()`
+### From - `.from(arr, [count = 1])`
 Returns a random element from an array. 
 
-Requires one parameter: an array. 
-
-Accepts an optional second parameter, an array length, which allows it to return an array containing the specified number of random elements.
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| arr              | Array  | The array of elements to select from     |
+| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
 
 #### Example
 ```javascript
@@ -69,26 +97,37 @@ random.from(["Paul", "Chani", "Gurney"], 5);
 // ["Gurney", "Paul", "Gurney", "Chani", "Chani"]
 ```
 
-### `.percent()`
+### Percent - `.percent()`
 Returns a random percentage (0 - 100).
 
+#### Example
 ```javascript
 random.percent();
 // 27
 ```
-### `.shuffle()`
 
-### `.string()`
+### `.shuffle(arr)`
+Return a shuffled version of a given array using the Fisher-Yates Algorithm
+
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| arr              | Array  | The array of elements to shuffle         |
+
+#### Example
+```javascript
+```
+
+### String - `.string([length = 16], [option = "alphanumeric"])`
 Returns a random string. Accepts two optional parameters: length, and type (alphanumeric, alpha-only, numeric-only). 
 
-If no parameters are included, it will return a 16-character alphanumeric string. 
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| length (Optional)| Number | The length you would like the string to be. Default = 16 |
+| count (Optional) | String | The type of string you would like to return. Default = "alphanumeric". Valid options: "alphanumeric", "alpha", "numeric" |
 
-If a number is passed, it will return an alphanumeric string of the that length.
-
-If a string of "alpha" or "numeric" is passed, it will generate a 16-character string containing alpha-only or numeric-only characters, respectively.
-
-If is number and a string of "alpha" or "numeric" is passed, it will generate a string of the given length of only the specified type
-
+#### Example
 ```javascript
 random.string();
 // hX4XHE2M6eyE9XM1
@@ -106,10 +145,15 @@ random.string(8, "alpha");
 // ajmRmsEC
 ```
 
-### `.to()`
-Returns a random number between 1 and the number you specify, a negative number may also be used. 
-Requires one parameter: a number.
+### To - `.to(num)`
+Returns a random number between 1 and the number you specify, a negative number may also be used to return a negative number.
 
+#### Parameters
+| Parameter        | Type   | Description                              |
+|------------------|--------|------------------------------------------|
+| num              | Number | The maximum number to select from         |
+
+#### Example
 ```javascript
 random.to(10);
 // 7
@@ -120,7 +164,7 @@ random.to(-99);
 
 ---
 ## Override `Math.random()`
-If you use an API or another technique to get more random numbers (i.e. [RANDOM.org](https://random.org/)) you may supply your own function in the constructor. It must return a floating point number between 0 and 1, not including 1.
+If you use an API or another technique to get random numbers (i.e. [RANDOM.org](https://random.org/)), you may supply your own function in the constructor. It must return a floating point number between 0 and 1, not including 1.
 
 ```javascript
 const random = new TotallyRandom(randomFunction);
