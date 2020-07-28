@@ -59,7 +59,7 @@ random.boolean(5);
 // [true, false, false, true, false]
 ```
 
-### Color - `.color([option = "hex"])`
+### Color - `.color([option = "hex"])` | `.colour([option = "hex"])`
 Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 
 #### Parameters
