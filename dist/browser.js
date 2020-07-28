@@ -151,30 +151,30 @@ class TotallyRandom {
    * @param {String} [type="alphanumeric"] - Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (Optional)
    * @returns {String} - A random string
    */
-	string(count = 16, type = "alphanumeric") {
+	string(length = 16, option = "alphanumeric") {
 		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
 
     // set [type] equal to [count] and [count] to 16 if only the [type] argument is provided
-		if (isNaN(count)) {
-			type = count;
-			count = 16;
+		if (isNaN(length)) {
+			option = length;
+			length = 16;
 		}
 
 		const generator = (arr, len) => {
 			return [...Array(len)]
 				.map(ltr => arr[(this.randomFunction() * arr.length) | 0])
 				.join("");
-		};
+		}
 
-		switch (type) {
+		switch (option) {
 			case "alpha":
-				return generator(alphas, count);
+				return generator(alphas, length);
 			case "alphanumeric":
-				return generator(alphanums, count);
+				return generator(alphanums, length);
 			case "numeric":
-				return generator(nums, count);
+        return generator(nums, length);
 		}
 	}
 
