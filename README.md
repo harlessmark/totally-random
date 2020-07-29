@@ -1,4 +1,4 @@
-# TotallyRandom
+# totally-random
 
 A utility class to help with random value generation.
 
@@ -24,7 +24,7 @@ You may also import this package from [unpkg](https://unpkg.com/browse/totally-r
 
 All numbers are _inclusive_.
 
-### Between - `.between(num1, num2, [count = 1])`
+`.between(num1, num2, [count = 1])`
 Return a number, or array of numbers, within a given range.
 
 | Parameter        | Type   | Description                              |
@@ -42,7 +42,7 @@ random.between(100, 200, 3);
 // [192, 125, 167]
 ```
 
-### Boolean - `.boolean([count = 1])`
+`.boolean([count = 1])`
 Return a boolean or array or booleans
 
 #### Parameters
@@ -59,7 +59,7 @@ random.boolean(5);
 // [true, false, false, true, false]
 ```
 
-### Color - `.color([option = "hex"])` | `.colour([option = "hex"])`
+`.color([option = "hex"])` | `.colour([option = "hex"])`
 Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 
 #### Parameters
@@ -79,7 +79,7 @@ random.color("hsl");
 // hsl(326, 87%, 43%)
 ```
 
-### From - `.from(arr, [count = 1])`
+`.from(arr, [count = 1])`
 Returns a random element from an array. 
 
 #### Parameters
@@ -97,7 +97,7 @@ random.from(["Paul", "Chani", "Gurney"], 5);
 // ["Gurney", "Paul", "Gurney", "Chani", "Chani"]
 ```
 
-### Percent - `.percent()`
+`.percent()`
 Returns a random percentage (0 - 100).
 
 #### Example
@@ -105,8 +105,7 @@ Returns a random percentage (0 - 100).
 random.percent();
 // 27
 ```
-
-### Shuffle - `.shuffle(arr)`
+`.shuffle(arr)`
 Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
 #### Parameters
@@ -120,7 +119,7 @@ random.shuffle([1, 2, 3, 4, 5]);
 // [3, 5, 2, 1, 4]
 ```
 
-### String - `.string([length = 16], [option = "alphanumeric"])`
+`.string([length = 16], [option = "alphanumeric"])`
 Returns a random string. Accepts two optional parameters: length, and type (alphanumeric, alpha-only, numeric-only). 
 
 #### Parameters
@@ -147,7 +146,7 @@ random.string(8, "alpha");
 // ajmRmsEC
 ```
 
-### To - `.to(num)`
+`.to(num)`
 Returns a random number between 1 and the number you specify, a negative number may also be used to return a negative number.
 
 #### Parameters
