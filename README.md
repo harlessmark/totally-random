@@ -21,7 +21,11 @@ You may also import this package from [unpkg](https://unpkg.com/browse/totally-r
 
 ---
 
-All numbers are _inclusive_.
+All numbers are _inclusive_. If you use an API or another technique to get random numbers (i.e. [RANDOM.org](https://random.org/)), you may supply your own function in the constructor. It must return a floating point number between 0 and 1, not including 1.
+
+```javascript
+const random = new TotallyRandom(randomFunction);
+```
 
 ## Between
 ### `.between(num1, num2, [count = 1])`
@@ -177,14 +181,6 @@ random.to(10);
 
 random.to(-99);
 // -64
-```
-
----
-## Override `Math.random()`
-If you use an API or another technique to get random numbers (i.e. [RANDOM.org](https://random.org/)), you may supply your own function in the constructor. It must return a floating point number between 0 and 1, not including 1.
-
-```javascript
-const random = new TotallyRandom(randomFunction);
 ```
 
 ---
