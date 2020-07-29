@@ -63,7 +63,7 @@ random.boolean(5);
 ```
 
 ## Color
-`.color([option = "hex"])` | `.colour([option = "hex"])`
+### `.color([option = "hex"])` | `.colour([option = "hex"])`
 
 Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 
@@ -85,7 +85,7 @@ random.color("hsl");
 ```
 
 ## From
-`.from(arr, [count = 1])`
+### `.from(arr, [count = 1])`
 
 Returns a random element from an array. 
 
@@ -105,7 +105,7 @@ random.from(["Paul", "Chani", "Gurney"], 5);
 ```
 
 ## Percent
-`.percent()`
+### `.percent()`
 
 Returns a random percentage (0 - 100).
 
@@ -116,7 +116,7 @@ random.percent();
 ```
 
 ## Shuffle
-`.shuffle(arr)`
+### `.shuffle(arr)`
 
 Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
@@ -132,7 +132,7 @@ random.shuffle([1, 2, 3, 4, 5]);
 ```
 
 ## String
-`.string([length = 16], [option = "alphanumeric"])`
+### `.string([length = 16], [option = "alphanumeric"])`
 
 Returns a random string. Accepts two optional parameters: length, and type (alphanumeric, alpha-only, numeric-only). 
 
@@ -161,7 +161,7 @@ random.string(8, "alpha");
 ```
 
 ## To
-`.to(num)`
+### `.to(num)`
 
 Returns a random number between 1 and the number you specify, a negative number may also be used to return a negative number.
 
