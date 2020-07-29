@@ -24,7 +24,7 @@ You may also import this package from [unpkg](https://unpkg.com/browse/totally-r
 All numbers are _inclusive_.
 
 ## Between
-`.between(num1, num2, [count = 1])`
+### `.between(num1, num2, [count = 1])`
 
 Return a number, or array of numbers, within a given range.
 
@@ -44,7 +44,7 @@ random.between(100, 200, 3);
 ```
 
 ## Boolean
-`.boolean([count = 1])`
+### `.boolean([count = 1])`
 
 Return a boolean or array or booleans
 
