@@ -147,19 +147,19 @@ class TotallyRandom {
 
   /**
    * @method string - Return a random string
-   * @param {Number} [count=16] - Specifies the length of the string (Optional)
-   * @param {String} [type="alphanumeric"] - Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (Optional)
+   * @param {String} [option="alphanumeric"] - Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (Optional)
+	 * @param {Number} [length=0] - Specifies the length of the string (Optional)
    * @returns {String} - A random string
    */
-	string(length = 16, option = "alphanumeric") {
+	string(option = "alphanumeric", length = this.between(3, 24)) {
 		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
 
-    // set [type] equal to [count] and [count] to 16 if only the [type] argument is provided
-		if (isNaN(length)) {
-			option = length;
-			length = 16;
+    // set [length] equal to [option] and [option] to alphanumeric if only the [length] argument is provided
+		if (!isNaN(option)) {
+			length = option;
+			option = "alphanumeric";
 		}
 
 		const generator = (arr, len) => {
