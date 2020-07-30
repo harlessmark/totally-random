@@ -32,6 +32,7 @@ const random = new TotallyRandom(randomFunction);
 
 Return a number, or array of numbers, within a given range.
 
+#### Parameters
 | Parameter        | Type   | Description                              |
 |------------------|--------|------------------------------------------|
 | num1             | Number | The beginning number of the range        |
@@ -136,31 +137,32 @@ random.shuffle([1, 2, 3, 4, 5]);
 ```
 
 ## String
-### `.string([length = 16], [option = "alphanumeric"])`
+### `.string([option = "alphanumeric"], [length = between(3, 24)])`
 
-Returns a random string. Accepts two optional parameters: length, and type (alphanumeric, alpha-only, numeric-only). 
+Returns a random string.
 
 #### Parameters
 | Parameter        | Type   | Description                              |
 |------------------|--------|------------------------------------------|
-| length (Optional)| Number | The length you would like the string to be. Default = 16 |
-| count (Optional) | String | The type of string you would like to return. Default = "alphanumeric". Valid options: "alphanumeric", "alpha", "numeric" |
+| option (Optional) | String | The type of string you would like to return. Default = "alphanumeric". Valid options: "alphanumeric", "alpha", "numeric" |
+| length (Optional)| Number | The length you would like the string to be. Default = between(3, 24) |
+
 
 #### Example
 ```javascript
 random.string();
-// hX4XHE2M6eyE9XM1
+// hX4XHE2M6eyE9XM1fj3
 
 random.string(5);
 // Us8dP
 
 random.string("alpha");
-// DCjWSnSOuSjKKqok
+// DCjWSnSOuSjK
 
 random.string("numeric");
-// 9386263812837196
+// 9386263812837196384
 
-random.string(8, "alpha");
+random.string("alpha", 8);
 // ajmRmsEC
 ```
 
