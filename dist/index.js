@@ -151,7 +151,7 @@ class TotallyRandom {
 	 * @param {Number} [length=0] - Specifies the length of the string (Optional)
    * @returns {String} - A random string
    */
-	string(option = "alphanumeric", length = 0) {
+	string(option = "alphanumeric", length = this.between(3, 24)) {
 		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
 		const nums = [..."0123456789"];
 		const alphanums = [...alphas, ...nums];
@@ -161,9 +161,6 @@ class TotallyRandom {
 			length = option;
 			option = "alphanumeric";
 		}
-
-		// if no length is specified, set to random length between 3 and 24 characters long
-		if (length === 0) length = this.between(3, 24);
 
 		const generator = (arr, len) => {
 			return [...Array(len)]
