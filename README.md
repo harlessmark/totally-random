@@ -4,6 +4,22 @@ A utility class to help with random value generation.
 
 ---
 
+## Table of Contents
+
+- [Installation](https://github.com/superhackerboy/totally-random#Installation)
+- [Importing](https://github.com/superhackerboy/totally-random#Importing)
+- [Functions](https://github.com/superhackerboy/totally-random#Between)
+  - [Between](https://github.com/superhackerboy/totally-random#Between)
+  - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
+  - [Color](https://github.com/superhackerboy/totally-random#Color)
+  - [Array](https://github.com/superhackerboy/totally-random#From)
+  - [Percentage](https://github.com/superhackerboy/totally-random#Percent)
+  - [Shuffle](https://github.com/superhackerboy/totally-random#Shuffle)
+  - [String](https://github.com/superhackerboy/totally-random#String)
+  - [To Number](https://github.com/superhackerboy/totally-random#To)
+- [Contributing](https://github.com/superhackerboy/totally-random#Contributing)
+- [License](https://github.com/superhackerboy/totally-random#License)
+
 ## Installation
 
 ```javascript
