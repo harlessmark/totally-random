@@ -12,11 +12,11 @@ A utility class to help with random value generation.
   - [Between](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
   - [Color](https://github.com/superhackerboy/totally-random#Color)
-  - [Array](https://github.com/superhackerboy/totally-random#From)
+  - [From (Array)](https://github.com/superhackerboy/totally-random#From)
   - [Percentage](https://github.com/superhackerboy/totally-random#Percent)
   - [Shuffle](https://github.com/superhackerboy/totally-random#Shuffle)
   - [String](https://github.com/superhackerboy/totally-random#String)
-  - [To Number](https://github.com/superhackerboy/totally-random#To)
+  - [To (Number)](https://github.com/superhackerboy/totally-random#To)
 - [Contributing](https://github.com/superhackerboy/totally-random#Contributing)
 - [License](https://github.com/superhackerboy/totally-random#License)
 
