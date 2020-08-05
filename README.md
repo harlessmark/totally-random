@@ -110,8 +110,14 @@ random.color();
 random.color("rgb");
 // rgb(61, 134, 160)
 
+random.color("rgba");
+// rgb(227, 30, 44,, 0.7)
+
 random.color("hsl");
 // hsl(326, 87%, 43%)
+
+random.color("hsla");
+// hsla(328, 72%, 44%, 0.8) 
 ```
 
 ## From
