@@ -145,7 +145,7 @@ random.from(["Paul", "Chani", "Gurney"], 5);
 
 ## Percent
 
-### `.percent()`
+### `.percent([count = 1])`
 
 Returns a random number between 1-100, or an array of random numbers between 1-100.
 
