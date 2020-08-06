@@ -122,10 +122,21 @@ class TotallyRandom {
 
 	/**
 	 * @method percent - Return a random percentage value
+	 * @param {Number} [count=1] - The amount of numbers in the array (Optional)
 	 * @returns {Number} - A number between 0 and 100
 	 */
-	percent() {
-		return Math.round(this.randomFunction() * 100);
+	percent(count = 1) {
+		if (count === 1) {
+			return Math.round(this.randomFunction() * 100);
+		} else {
+			let arr = [];
+
+			for (let i = 0; i < count; i++) {
+				arr.push(Math.round(this.randomFunction() * 100));
+			}
+
+			return arr;
+		}
 	}
 
 	/**

@@ -117,7 +117,7 @@ random.color("hsl");
 // hsl(326, 87%, 43%)
 
 random.color("hsla");
-// hsla(328, 72%, 44%, 0.8) 
+// hsla(328, 72%, 44%, 0.8)
 ```
 
 ## From
@@ -147,13 +147,22 @@ random.from(["Paul", "Chani", "Gurney"], 5);
 
 ### `.percent()`
 
-Returns a random percentage (0 - 100).
+Returns a random number between 1-100, or an array of random numbers between 1-100.
+
+#### Parameters
+
+| Parameter        | Type   | Description                                                          |
+| ---------------- | ------ | -------------------------------------------------------------------- |
+| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
 
 #### Example
 
 ```javascript
 random.percent();
 // 27
+
+random.percent(5);
+// [37, 88, 24, 90, 11]
 ```
 
 ## Shuffle
