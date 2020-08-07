@@ -208,13 +208,16 @@ class TotallyRandom {
         if (count > 1) {
             const arr = [];
             for (let i = 0; i < count; i++) {
-                arr.push(Math.floor(Math.ceil(this.randomFunction() * num + (num > 0 ? 1 : 0)) - 1));
+                arr.push(this.#randomizeRange(num));
             }
             return arr;
         }
 
-        return Math.round(this.randomFunction()) + (num > 0 ? 0 : -1);
+        return this.#randomizeRange(num);
     }
+
+    // Private methods
+    #randomizeRange = (num) => Math.round(Math.ceil(this.randomFunction() * num + (num > 0 ? 1 : 0)) - 1);
 }
 
 module.exports = TotallyRandom;
