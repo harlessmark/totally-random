@@ -97,8 +97,9 @@ class TotallyRandom {
 		arr.forEach(item => (total += item[1]));
 		if (total !== 100) throw "Percentages must total 100.";
 
+		const sorted = arr.sort((a, b) => a[1] - b[1]);
+
 		if (count === 1) {
-			const sorted = arr.sort((a, b) => a[1] - b[1]);
 			const percent = this.to(100);
 			let sum = 0;
 
@@ -110,7 +111,6 @@ class TotallyRandom {
 			}
 		} else {
 			let newArr = [];
-			const sorted = arr.sort((a, b) => a[1] - b[1]);
 
 			for (let i = 0; i < count; i++) {
 				let percent = this.to(100);
