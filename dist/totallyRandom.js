@@ -205,19 +205,18 @@ class TotallyRandom {
             throw 'Please ensure count is a positive integer';
         }
 
+        const randomizeRange = (num) => Math.round(Math.ceil(this.randomFunction() * num + (num > 0 ? 1 : 0)) - 1);
+
         if (count > 1) {
             const arr = [];
             for (let i = 0; i < count; i++) {
-                arr.push(this.#randomizeRange(num));
+                arr.push(randomizeRange(num));
             }
             return arr;
         }
 
-        return this.#randomizeRange(num);
+        return randomizeRange(num);
     }
-
-    // Private methods
-    #randomizeRange = (num) => Math.round(Math.ceil(this.randomFunction() * num + (num > 0 ? 1 : 0)) - 1);
 }
 
 module.exports = TotallyRandom;
