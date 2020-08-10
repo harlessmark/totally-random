@@ -131,21 +131,20 @@ Returns a random user given data type based on altered chance
 
 ```javascript
 random.chance([
-	["Hoyt", 15],
-	["Kassad", 30],
-	["Silenus", 45],
-	["Weintraub", 10],
+  ["Hoyt", 15],
+  ["Kassad", 30],
+  ["Silenus", 45],
+  ["Weintraub", 10],
 ]);
 // Silenus
 
-random.chance(
-	[
-		["Hoyt", 15],
-		["Kassad", 30],
-		["Silenus", 45],
-		["Weintraub", 10],
-	],
-	5
+random.chance([
+  ["Hoyt", 15],
+  ["Kassad", 30],
+  ["Silenus", 45],
+  ["Weintraub", 10],
+  ],
+  5
 );
 // ["Weintraub", "Silenus", "Hoyt", "Selinus", "Weintraub"]
 ```
