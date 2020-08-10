@@ -89,7 +89,7 @@ class TotallyRandom {
 	 * @method chance - Return a data type chosen by an altered chance
 	 * @param {Arr} - Array of arrays containing a data type and percent chance
 	 * @param {Number} [count=1] - The amount of items in the return array (Optional)
-	 * @returns {*} - A user given data type
+	 * @returns {*} - A user-given data type
 	 */
 	chance(arr, count = 1) {
 		// checks if sum of percentages is 100
@@ -97,36 +97,22 @@ class TotallyRandom {
 		arr.forEach(item => (total += item[1]));
 		if (total !== 100) throw "Percentages must total 100.";
 
+		let newArr = [];
 		const sorted = arr.sort((a, b) => a[1] - b[1]);
 
-		if (count === 1) {
-			const percent = this.to(100);
+		for (let i = 0; i < count; i++) {
+			let percent = this.to(100);
 			let sum = 0;
 
-			for (const item of sorted) {
-				sum += item[1];
+			for (let j = 0; j < sorted.length; j++) {
+				sum += sorted[j][1];
 				if (sum >= percent) {
-					return item[0];
+					newArr.push(sorted[j]);
+					break;
 				}
 			}
-		} else {
-			let newArr = [];
-
-			for (let i = 0; i < count; i++) {
-				let percent = this.to(100);
-				let sum = 0;
-
-				for (const item of sorted) {
-					sum += item[1];
-					if (sum >= percent) {
-						newArr.push(item[0]);
-						break;
-					}
-				}
-			}
-
-			return newArr;
 		}
+		return count === 1 ? newArr[0][0] : newArr;
 	}
 
 	/**
