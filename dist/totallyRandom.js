@@ -6,6 +6,34 @@ class TotallyRandom {
     }
 
     /**
+     * @method array - Return a random element, or array of a given count of random elements, from a given array
+     * @param {Array} arr - Array containing values
+     * @param {Number} [count=1] - Amount of elements to include in the output array (Optional)
+     * @param {Boolean} [unique=false] - Determines whether output array contains duplicate elements or unique elements (Optional)
+     * @returns {(Element|Array)} - A random element from [arr], or array of random elements of given length [count] from [arr]
+     */
+    array(arr, count = 1, unique = false) {
+        if (count === 1) {
+            // returns random element from [arr]
+            return arr[Math.floor(this.randomFunction() * arr.length)];
+        } else {
+            // returns an array of [count] elements
+            let newArr = [];
+
+            for (let i = 0; i < count; i++) {
+                newArr.push(arr[Math.floor(this.randomFunction() * arr.length)]);
+            }
+
+            if (unique) {
+                if (arr.length < count) console.warn("WARN: Array length shorter than count with unique=true, this will yield unpredictable output.");
+                newArr = [...new Set(newArr)];
+            }
+
+            return newArr;
+        }
+    }
+
+    /**
      * @method between - Return a number, or array of numbers, within a given range
      * @param {Number} num1 - The beginning number of the range
      * @param {Number} num2 - The ending number of the range
@@ -95,28 +123,6 @@ class TotallyRandom {
 				${this.percent()}%,
 				${this.randomFunction().toFixed(2)}
 			)`;
-        }
-    }
-
-    /**
-     * @method from - Return a random element, or array of a given count of random elements, from a given array
-     * @param {Array} arr - Array containing values
-     * @param {Number} [count=1] - Amount of elements to include in the output array (Optional)
-     * @returns {(Element|Array)} - A random element from [arr], or array of random elements of given length [count] from [arr]
-     */
-    from(arr, count = 1) {
-        if (count === 1) {
-            // returns random element from [arr]
-            return arr[Math.floor(this.randomFunction() * arr.length)];
-        } else {
-            // returns an array of [count] elements
-            let newArr = [];
-
-            for (let i = 0; i < count; i++) {
-                newArr.push(arr[Math.floor(this.randomFunction() * arr.length)]);
-            }
-
-            return newArr;
         }
     }
 
