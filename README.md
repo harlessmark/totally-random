@@ -9,10 +9,11 @@ A utility class to help with random value generation.
 - [Installation](https://github.com/superhackerboy/totally-random#Installation)
 - [Importing](https://github.com/superhackerboy/totally-random#Importing)
 - [Functions](https://github.com/superhackerboy/totally-random#Between)
+  - [Array](https://github.com/superhackerboy/totally-random#Array)
   - [Between](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
+  - [Chance](https://github.com/superhackerboy/totally-random#Chance)
   - [Color](https://github.com/superhackerboy/totally-random#Color)
-  - [From (Array)](https://github.com/superhackerboy/totally-random#From)
   - [Percentage](https://github.com/superhackerboy/totally-random#Percent)
   - [Shuffle](https://github.com/superhackerboy/totally-random#Shuffle)
   - [String](https://github.com/superhackerboy/totally-random#String)
@@ -42,18 +43,19 @@ const random = new TotallyRandom(randomFunction);
 ```
 
 ---
+
 ## Array
 
 ### `.array(arr, [count = 1], [unique = false])`
 
-Returns a random element from an array or an array of random array elements 
+Returns a random element from an array or an array of random array elements
 
 #### Parameters
 
-| Parameter        | Type   | Description                                                          |
-| ---------------- | ------ | -------------------------------------------------------------------- |
-| arr              | Array  | The array of elements to select from                                 |
-| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
+| Parameter         | Type    | Description                                                                                     |
+| ----------------- | ------- | ----------------------------------------------------------------------------------------------- |
+| arr               | Array   | The array of elements to select from                                                            |
+| count (Optional)  | Number  | The amount of elements to include in the returned array. Default = 1                            |
 | unique (Optional) | Boolean | Determines whether output array contains duplicate elements or unique elements. Default = false |
 
 #### Example
@@ -64,7 +66,6 @@ random.array(["Paul", "Chani", "Gurney"]);
 
 random.array(["Paul", "Chani", "Gurney"], 5);
 // ["Gurney", "Paul", "Gurney", "Chani", "Chani"]
-
 ```
 
 ## Between
@@ -111,6 +112,42 @@ random.boolean();
 
 random.boolean(5);
 // [true, false, false, true, false]
+```
+
+## Chance
+
+### `.chance(arr, [count = 1])`
+
+Returns a random user given data type based on altered chance
+
+#### Parameters
+
+| Parameter        | Type   | Description                                                                                   |
+| ---------------- | ------ | --------------------------------------------------------------------------------------------- |
+| arr              | Array  | The array of arrays of elements containing any data type and percent chance of being selected |
+| count (Optional) | Number | Return a data type chosen by an altered chance                                                |
+
+#### Example
+
+```javascript
+random.chance([
+	["Hoyt", 15],
+	["Kassad", 30],
+	["Silenus", 45],
+	["Weintraub", 10],
+]);
+// Silenus
+
+random.chance(
+	[
+		["Hoyt", 15],
+		["Kassad", 30],
+		["Silenus", 45],
+		["Weintraub", 10],
+	],
+	5
+);
+// ["Weintraub", "Silenus", "Hoyt", "Selinus", "Weintraub"]
 ```
 
 ## Color
