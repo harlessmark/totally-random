@@ -42,6 +42,30 @@ const random = new TotallyRandom(randomFunction);
 ```
 
 ---
+## Array
+
+### `.array(arr, [count = 1], [unique = false])`
+
+Returns a random element from an array or an array of random array elements 
+
+#### Parameters
+
+| Parameter        | Type   | Description                                                          |
+| ---------------- | ------ | -------------------------------------------------------------------- |
+| arr              | Array  | The array of elements to select from                                 |
+| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
+| unique (Optional) | Boolean | Determines whether output array contains duplicate elements or unique elements. Default = false |
+
+#### Example
+
+```javascript
+random.array(["Paul", "Chani", "Gurney"]);
+// Chani
+
+random.array(["Paul", "Chani", "Gurney"], 5);
+// ["Gurney", "Paul", "Gurney", "Chani", "Chani"]
+
+```
 
 ## Between
 
@@ -118,29 +142,6 @@ random.color("hsl");
 
 random.color("hsla");
 // hsla(328, 72%, 44%, 0.8)
-```
-
-## From
-
-### `.from(arr, [count = 1])`
-
-Returns a random element from an array.
-
-#### Parameters
-
-| Parameter        | Type   | Description                                                          |
-| ---------------- | ------ | -------------------------------------------------------------------- |
-| arr              | Array  | The array of elements to select from                                 |
-| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
-
-#### Example
-
-```javascript
-random.from(["Paul", "Chani", "Gurney"]);
-// Chani
-
-random.from(["Paul", "Chani", "Gurney"], 5);
-// ["Gurney", "Paul", "Gurney", "Chani", "Chani"]
 ```
 
 ## Percent
