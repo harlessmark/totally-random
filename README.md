@@ -50,8 +50,6 @@ const random = new TotallyRandom(randomFunction);
 
 Returns a random element from an array or an array of random array elements
 
-#### Parameters
-
 | Parameter         | Type    | Description                                                                                     |
 | ----------------- | ------- | ----------------------------------------------------------------------------------------------- |
 | arr               | Array   | The array of elements to select from                                                            |
@@ -73,8 +71,6 @@ random.array(["Paul", "Chani", "Gurney"], 5);
 ### `.between(num1, num2, [count = 1])`
 
 Return a number, or array of numbers, within a given range.
-
-#### Parameters
 
 | Parameter        | Type   | Description                                                         |
 | ---------------- | ------ | ------------------------------------------------------------------- |
@@ -98,8 +94,6 @@ random.between(100, 200, 3);
 
 Return a boolean or array or booleans
 
-#### Parameters
-
 | Parameter        | Type   | Description                                                          |
 | ---------------- | ------ | -------------------------------------------------------------------- |
 | count (Optional) | Number | The amount of booleans to include in the returned array. Default = 1 |
@@ -120,8 +114,6 @@ random.boolean(5);
 
 Returns a random user given data type based on altered chance
 
-#### Parameters
-
 | Parameter        | Type   | Description                                                                                   |
 | ---------------- | ------ | --------------------------------------------------------------------------------------------- |
 | arr              | Array  | The array of arrays of elements containing any data type and percent chance of being selected |
@@ -131,20 +123,21 @@ Returns a random user given data type based on altered chance
 
 ```javascript
 random.chance([
-  ["Hoyt", 15],
-  ["Kassad", 30],
-  ["Silenus", 45],
-  ["Weintraub", 10],
+	["Hoyt", 15],
+	["Kassad", 30],
+	["Silenus", 45],
+	["Weintraub", 10],
 ]);
 // Silenus
 
-random.chance([
-  ["Hoyt", 15],
-  ["Kassad", 30],
-  ["Silenus", 45],
-  ["Weintraub", 10],
-  ],
-  5
+random.chance(
+	[
+		["Hoyt", 15],
+		["Kassad", 30],
+		["Silenus", 45],
+		["Weintraub", 10],
+	],
+	5
 );
 // ["Weintraub", "Silenus", "Hoyt", "Selinus", "Weintraub"]
 ```
@@ -154,8 +147,6 @@ random.chance([
 ### `.color([option = "hex"])` | `.colour([option = "hex"])`
 
 Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
-
-#### Parameters
 
 | Parameter         | Type   | Description                                                                                                          |
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
@@ -186,8 +177,6 @@ random.color("hsla");
 
 Returns a random number between 1-100, or an array of random numbers between 1-100.
 
-#### Parameters
-
 | Parameter        | Type   | Description                                                          |
 | ---------------- | ------ | -------------------------------------------------------------------- |
 | count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
@@ -208,8 +197,6 @@ random.percent(5);
 
 Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
-#### Parameters
-
 | Parameter | Type  | Description                      |
 | --------- | ----- | -------------------------------- |
 | arr       | Array | The array of elements to shuffle |
@@ -226,8 +213,6 @@ random.shuffle([1, 2, 3, 4, 5]);
 ### `.string([option = "alphanumeric"], [length = between(3, 24)])`
 
 Returns a random string.
-
-#### Parameters
 
 | Parameter         | Type   | Description                                                                                                              |
 | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
@@ -258,8 +243,6 @@ random.string("alpha", 8);
 ### `.to(num)`
 
 Returns a random number between 1 (or -1) and the number you specify, or an array of random numbers between 1 (or -1) and the number you specify.
-
-#### Parameters
 
 | Parameter        | Type   | Description                                                         |
 | ---------------- | ------ | ------------------------------------------------------------------- |
