@@ -1,3 +1,5 @@
+const countError = new Error("count must be greater than 0");
+
 class TotallyRandom {
   // all numbers are inclusive
   // methods in alphabetical order
@@ -51,7 +53,7 @@ class TotallyRandom {
 
   between(num1, num2, count = 1) {
     if (num1 === num2) throw new Error("num1 cannot equal num2");
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -71,7 +73,7 @@ class TotallyRandom {
    */
 
   boolean(count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -96,7 +98,7 @@ class TotallyRandom {
    */
 
   chance(arr, count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
     // checks if sum of percentages is 100
     const total = arr.reduce((acc, curr) => acc + curr[1], 0);
     if (total !== 100) throw new Error("sum of percentages must equal 100");
@@ -129,42 +131,33 @@ class TotallyRandom {
    */
 
   color(option = "hex") {
-    if (option === "hex") {
-      // returns random hex code (string)
-      return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
+    switch (option) {
+      case "rgb":
+        // returns random rgb color (string)
+        return `rgb(${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.between(0, 255)})`;
+      case "rgba":
+        // returns random rgba color (string)
+        return `rgba(${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.randomizer().toFixed(2)})`;
+      case "hsl":
+        // returns random hsl color (string)
+        return `hsl(${this.between(0, 360)}, \
+                ${this.percent()}%, \
+                ${this.percent()}%)`;
+      case "hsla":
+        // returns random hsla color (string)
+        return `hsla(${this.between(0, 360)}, \
+                ${this.percent()}%, \
+                ${this.percent()}%, \
+                ${this.randomizer().toFixed(2)})`;
+      default:
+        // returns random hex code (string)
+        return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
     }
-    if (option === "rgb") {
-      // returns random rgb color (string)
-      return `rgb(
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}
-			)`;
-    }
-    if (option === "rgba") {
-      // returns random rgba color (string)
-      return `rgba(
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}, 
-				${this.between(0, 255)},
-				${this.randomizer().toFixed(2)}
-			)`;
-    }
-    if (option === "hsl") {
-      // returns random hsl color (string)
-      return `hsl(
-				${this.between(0, 360)},
-				${this.percent()}%,
-				${this.percent()}%
-			)`;
-    }
-    // returns random hsla color (string)
-    return `hsla(
-				${this.between(0, 360)},
-				${this.percent()}%,
-				${this.percent()}%,
-				${this.randomizer().toFixed(2)}
-			)`;
   }
 
   /**
@@ -176,7 +169,7 @@ class TotallyRandom {
    */
 
   percent(count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -230,24 +223,22 @@ class TotallyRandom {
     const nums = [..."0123456789"];
     const alphanums = [...alphas, ...nums];
 
-    // set [length] equal to [option] and [option] to alphanumeric if only the [length] argument is provided
-    if (!isNaN(option)) {
-      length = option;
-      option = "alphanumeric";
-    }
+    // set stringLength equal to [option] and stringOption to alphanumeric if only the [length] argument is provided
+    const stringLength = !Number.isNaN(option) ? option : length;
+    const stringOption = !Number.isNaN(option) ? "alphanumeric" : option;
 
     const generator = (arr, len) =>
       [...Array(len)]
-        .map((ltr) => arr[(this.randomizer() * arr.length) | 0])
+        .map(() => arr[(this.randomizer() * arr.length) | 0])
         .join("");
 
-    switch (option) {
+    switch (stringOption) {
       case "alpha":
-        return generator(alphas, length);
-      case "alphanumeric":
-        return generator(alphanums, length);
+        return generator(alphas, stringLength);
       case "numeric":
-        return generator(nums, length);
+        return generator(nums, stringLength);
+      default:
+        return generator(alphanums, stringLength);
     }
   }
 
@@ -261,7 +252,7 @@ class TotallyRandom {
    */
 
   to(num, count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
     if (num < 1) throw new Error("num must be a positive integer");
 
     const arr = [];
@@ -275,5 +266,7 @@ class TotallyRandom {
     return count === 1 ? arr[0] : arr;
   }
 }
+
+TotallyRandom.prototype.colour = TotallyRandom.prototype.color;
 
 module.exports = TotallyRandom;
