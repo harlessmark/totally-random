@@ -1,266 +1,281 @@
 class TotallyRandom {
-	// all numbers are inclusive
-	// alphabetical order
-	constructor(randomFunction = Math.random) {
-		this.randomFunction = randomFunction;
-	}
+  // all numbers are inclusive
+  // methods in alphabetical order
+  constructor(randomizer = Math.random) {
+    this.randomizer = randomizer;
+  }
 
-	/**
-	 * @method array - Return a random element, or array of a given count of random elements, from a given array
-	 * @param {Array} arr - Array containing values
-	 * @param {Number} [count=1] - Amount of elements to include in the output array (Optional)
-	 * @param {Boolean} [unique=false] - Determines whether output array contains duplicate elements or unique elements (Optional)
-	 * @returns {(Element|Array)} - A random element from [arr], or array of random elements of given length [count] from [arr]
-	 */
-	array(arr, count = 1, unique = false) {
-		if (count === 1) {
-			// returns random element from [arr]
-			return arr[Math.floor(this.randomFunction() * arr.length)];
-		} else {
-			// returns an array of [count] elements
-			let newArr = [];
+  /**
+   * Returns a random user-given data type, or array of random user-given data types, from a given array
+   *
+   * @param {array} arr Array containing values to be randomly selected
+   * @param {number} [count=1] Amount of user-given data types to return (optional)
+   * @param {boolean} [unique=false] If output array should include duplicate user-given data types (optional)
+   *
+   * @returns {(*|Array)} A user-given data type, or array of random elements, of given length
+   */
 
-			for (let i = 0; i < count; i++) {
-				newArr.push(arr[Math.floor(this.randomFunction() * arr.length)]);
-			}
+  array(arr, count = 1, unique = false) {
+    if (count === 1) {
+      // returns random element from [arr]
+      return arr[Math.floor(this.randomizer() * arr.length)];
+    }
+    // returns an array of [count] elements
+    let newArr = [];
 
-			if (unique) {
-				if (arr.length < count)
-					throw "Array length shorter than count with unique=true, this will yield unpredictable output.";
+    for (let i = 0; i < count; i++) {
+      newArr.push(arr[Math.floor(this.randomizer() * arr.length)]);
+    }
 
-				newArr = [...new Set(newArr)];
-			}
+    if (unique) {
+      if (arr.length < count)
+        throw new Error(
+          "Array length must be larger than count if unique = true"
+        );
 
-			return newArr;
-		}
-	}
+      newArr = [...new Set(newArr)];
+    }
 
-	/**
-	 * @method between - Return a number, or array of numbers, within a given range
-	 * @param {Number} num1 - The beginning number of the range
-	 * @param {Number} num2 - The ending number of the range
-	 * @param {Number} [count=1] - The amount of numbers in the array (Optional)
-	 * @returns {(Number|Array)} - A random number, or array of numbers of given length [count], within the specified range [num1 thru num2]
-	 */
-	between(num1, num2, count = 1) {
-		if (count === 1) {
-			// returns a random number between num1 and num2 (inclusive)
-			return Math.round(this.randomFunction() * (num1 - num2) + num2);
-		} else if (count > 1) {
-			let arr = [];
+    return newArr;
+  }
 
-			for (let i = 0; i < count; i++) {
-				// returns an array of [count] numbers
-				const num = Math.round(this.randomFunction() * (num1 - num2) + num2);
-				arr.push(num);
-			}
+  /**
+   * Return a random number, or array of random numbers, within a given range
+   *
+   * @param {number} num1 First number of the range
+   * @param {number} num2 Last number of the range
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} A random number, or array of random numbers, within the specified range
+   */
 
-			return arr;
-		}
-	}
+  between(num1, num2, count = 1) {
+    if (num1 === num2) throw new Error("num1 cannot equal num2");
+    if (count < 1) throw new Error("count must be greater than 0");
 
-	/**
-	 * @method boolean - Return a boolean or array of booleans
-	 * @param {Number} [count=1] - The amount of booleans in the array (Optional)
-	 * @returns {(Boolean|Array)} - A random boolean, or array of booleans of given length [count]
-	 */
-	boolean(count = 1) {
-		if (this.to(2) === 1 && count === 1) {
-			return true;
-		} else if (this.to(2) === 2 && count === 1) {
-			return false;
-		} else {
-			let arr = [];
+    const arr = [];
 
-			for (let i = 0; i < count + 1; i++) {
-				// returns an array of [count] booleans
-				if (this.to(2) === 1) {
-					arr.push(true);
-				} else if (this.to(2) === 2) {
-					arr.push(false);
-				}
-			}
+    for (let i = 0; i < count; i++) {
+      arr.push(Math.round(this.randomizer() * (num1 - num2) + num2));
+    }
 
-			return arr;
-		}
-	}
+    return count === 1 ? arr[0] : arr;
+  }
 
-	/**
-	 * @method chance - Return a data type chosen by an altered chance
-	 * @param {Arr} - Array of arrays containing a data type and percent chance
-	 * @param {Number} [count=1] - The amount of items in the return array (Optional)
-	 * @returns {*} - A user-given data type
-	 */
-	chance(arr, count = 1) {
-		// checks if sum of percentages is 100
-		let total = 0;
-		arr.forEach(item => (total += item[1]));
-		if (total !== 100) throw "Percentages must total 100.";
+  /**
+   * Return a random boolean or array of random booleans
+   *
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(boolean|array)} A random boolean or array of booleans
+   */
 
-		let newArr = [];
-		const sorted = arr.sort((a, b) => a[1] - b[1]);
+  boolean(count = 1) {
+    if (count < 1) throw new Error("count must be greater than 0");
 
-		for (let i = 0; i < count; i++) {
-			let percent = this.to(100);
-			let sum = 0;
+    const arr = [];
 
-			for (let j = 0; j < sorted.length; j++) {
-				sum += sorted[j][1];
-				if (sum >= percent) {
-					newArr.push(sorted[j]);
-					break;
-				}
-			}
-		}
-		return count === 1 ? newArr[0][0] : newArr;
-	}
+    for (let i = 0; i < count; i++) {
+      const oneOrTwo = this.to(2);
 
-	/**
-	 * @method color - Return a Hex code, RGB, RGBA, HSL, or HSLA value color
-	 * @param {String} [option="hex"] - Flag to change output type, valid options are: "hex", "rgb", "rgba", "hsl", "hsla" (Optional)
-	 * @returns {String} - A random Hex, RGB, RGBA, HSL, or HSLA color value
-	 */
-	color(option = "hex") {
-		if (option === "hex") {
-			// returns random hex code (string)
-			return `#${((this.randomFunction() * 0xffffff) << 0).toString(16)}`;
-		} else if (option === "rgb") {
-			// returns random rgb color (string)
-			return `rgb(
+      if (oneOrTwo === 1) {
+        arr.push(true);
+      } else arr.push(false);
+    }
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * Return a random user-give data type, or an array of random user-given data types, based on a rigged chance
+   *
+   * @param {array} arr Array of arrays containing a data type and percent chance
+   * @param {number} [count=1] Amount of data types to return (optional)
+   *
+   * @returns {*} A random user-given data type or an array of random user-given data types
+   */
+
+  chance(arr, count = 1) {
+    if (count < 1) throw new Error("count must be greater than 0");
+    // checks if sum of percentages is 100
+    const total = arr.reduce((acc, curr) => acc + curr[1], 0);
+    if (total !== 100) throw new Error("sum of percentages must equal 100");
+
+    const newArr = [];
+    const sorted = arr.sort((a, b) => a[1] - b[1]);
+
+    for (let i = 0; i < count; i++) {
+      const percent = this.to(100);
+      let sum = 0;
+
+      for (let j = 0; j < sorted.length; j++) {
+        sum += sorted[j][1];
+        if (sum >= percent) {
+          newArr.push(sorted[j][0]);
+          break;
+        }
+      }
+    }
+
+    return count === 1 ? newArr[0][0] : newArr;
+  }
+
+  /**
+   * Return a random hex code, RGB, RGBA, HSL, or HSLA color value
+   *
+   * @param {string} [option="hex"] Flag to change output type, valid options are: "hex", "rgb", "rgba", "hsl", "hsla" (optional)
+   *
+   * @returns {string} - A random hex, RGB, RGBA, HSL, or HSLA color value
+   */
+
+  color(option = "hex") {
+    if (option === "hex") {
+      // returns random hex code (string)
+      return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
+    }
+    if (option === "rgb") {
+      // returns random rgb color (string)
+      return `rgb(
 				${this.between(0, 255)}, 
 				${this.between(0, 255)}, 
 				${this.between(0, 255)}
 			)`;
-		} else if (option === "rgba") {
-			// returns random rgba color (string)
-			return `rgba(
+    }
+    if (option === "rgba") {
+      // returns random rgba color (string)
+      return `rgba(
 				${this.between(0, 255)}, 
 				${this.between(0, 255)}, 
 				${this.between(0, 255)},
-				${this.randomFunction().toFixed(2)}
+				${this.randomizer().toFixed(2)}
 			)`;
-		} else if (option === "hsl") {
-			// returns random hsl color (string)
-			return `hsl(
+    }
+    if (option === "hsl") {
+      // returns random hsl color (string)
+      return `hsl(
 				${this.between(0, 360)},
 				${this.percent()}%,
 				${this.percent()}%
 			)`;
-		} else {
-			// returns random hsla color (string)
-			return `hsla(
+    }
+    // returns random hsla color (string)
+    return `hsla(
 				${this.between(0, 360)},
 				${this.percent()}%,
 				${this.percent()}%,
-				${this.randomFunction().toFixed(2)}
+				${this.randomizer().toFixed(2)}
 			)`;
-		}
-	}
+  }
 
-	/**
-	 * @method percent - Return a random percentage value
-	 * @param {Number} [count=1] - The amount of numbers in the array (Optional)
-	 * @returns {Number} - A number between 0 and 100
-	 */
-	percent(count = 1) {
-		if (count === 1) {
-			return Math.round(this.randomFunction() * 100);
-		} else {
-			let arr = [];
+  /**
+   * Return a random percentage value
+   *
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} A random number, or array of random numbers, between 0 and 100
+   */
 
-			for (let i = 0; i < count; i++) {
-				arr.push(Math.round(this.randomFunction() * 100));
-			}
+  percent(count = 1) {
+    if (count < 1) throw new Error("count must be greater than 0");
 
-			return arr;
-		}
-	}
+    const arr = [];
 
-	/**
-	 * @method shuffle - Return a shuffled version of a given array using the Fisher-Yates Algorithm
-	 * @param {Array} arr - Array of values to shuffle
-	 * @returns {Array} - A shuffled version of [arr]
-	 */
-	shuffle(arr) {
-		let j, x, i;
+    for (let i = 0; i < count; i++) {
+      arr.push(Math.round(this.randomizer() * 100));
+    }
 
-		for (i = arr.length - 1; i > 0; i--) {
-			j = Math.floor(this.randomFunction() * (i + 1));
-			x = arr[i];
-			arr[i] = arr[j];
-			arr[j] = x;
-		}
+    return count === 1 ? arr[0] : arr;
+  }
 
-		return arr;
-	}
+  /**
+   * Return a shuffled array of a given array using the Fisher-Yates Algorithm
+   *
+   * @param {array} arr Array of values to shuffle
+   *
+   * @returns {array} A shuffled array
+   */
 
-	/**
-	 * @method string - Return a random string
-	 * @param {String} [option="alphanumeric"] - Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (Optional)
-	 * @param {Number} [length=0] - Specifies the length of the string (Optional)
-	 * @returns {String} - A random string
-	 */
-	string(option = "alphanumeric", length = this.between(3, 24)) {
-		const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
-		const nums = [..."0123456789"];
-		const alphanums = [...alphas, ...nums];
+  shuffle(arr) {
+    if (arr.length < 2) {
+      throw new Error("arr must contain at least two elements");
+    }
 
-		// set [length] equal to [option] and [option] to alphanumeric if only the [length] argument is provided
-		if (!isNaN(option)) {
-			length = option;
-			option = "alphanumeric";
-		}
+    let j;
+    let x;
+    let i;
 
-		const generator = (arr, len) => {
-			return [...Array(len)]
-				.map(ltr => arr[(this.randomFunction() * arr.length) | 0])
-				.join("");
-		};
+    for (i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(this.randomizer() * (i + 1));
+      x = arr[i];
+      arr[i] = arr[j];
+      arr[j] = x;
+    }
 
-		switch (option) {
-			case "alpha":
-				return generator(alphas, length);
-			case "alphanumeric":
-				return generator(alphanums, length);
-			case "numeric":
-				return generator(nums, length);
-		}
-	}
+    return arr;
+  }
 
-	/**
-	 * @method to - Return a random number between 1 or -1 and a given number
-	 * @param {Number} num - The max number of the range excluding 0
-	 * @param {Number} [count=1] - The amount of numbers in the array (Optional), less than 1 is ignored
-	 * @returns {(Number|Array)} - A random number, or array of numbers of given length [count]
-	 */
-	to(num, count = 1) {
-		if (isNaN(num) || num === 0) {
-			throw "Please ensure num is a number and not zero.";
-		}
+  /**
+   * Return a string
+   *
+   * @param {string} [option="alphanumeric"] Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (optional)
+   * @param {number} [length=0] Specifies the length of the string (optional)
+   *
+   * @returns {string} - A random string
+   */
 
-		if (
-			isNaN(count) ||
-			Number(count).toFixed(0) !== count.toString() ||
-			count < 1
-		) {
-			throw "Please ensure count is a positive integer";
-		}
+  string(option = "alphanumeric", length = this.between(4, 24)) {
+    if (length < 1) throw new Error("length must be at least 1");
 
-		const randomizeRange = num =>
-			Math.round(
-				Math.ceil(this.randomFunction() * num + (num > 0 ? 1 : 0)) - 1
-			);
+    const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+    const nums = [..."0123456789"];
+    const alphanums = [...alphas, ...nums];
 
-		if (count > 1) {
-			const arr = [];
-			for (let i = 0; i < count; i++) {
-				arr.push(randomizeRange(num));
-			}
-			return arr;
-		}
+    // set [length] equal to [option] and [option] to alphanumeric if only the [length] argument is provided
+    if (!isNaN(option)) {
+      length = option;
+      option = "alphanumeric";
+    }
 
-		return randomizeRange(num);
-	}
+    const generator = (arr, len) =>
+      [...Array(len)]
+        .map((ltr) => arr[(this.randomizer() * arr.length) | 0])
+        .join("");
+
+    switch (option) {
+      case "alpha":
+        return generator(alphas, length);
+      case "alphanumeric":
+        return generator(alphanums, length);
+      case "numeric":
+        return generator(nums, length);
+    }
+  }
+
+  /**
+   * Return a random number between 1 and positive number or -1 and negative number
+   *
+   * @param {number} num Max number of the range excluding 0
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} - A random number or array of numbers
+   */
+
+  to(num, count = 1) {
+    if (count < 1) throw new Error("count must be greater than 0");
+    if (num < 1) throw new Error("num must be a positive integer");
+
+    const arr = [];
+
+    for (let i = 0; i < count; i++) {
+      arr.push(
+        Math.round(Math.ceil(this.randomizer() * num + (num > 0 ? 1 : 0)) - 1)
+      );
+    }
+
+    return count === 1 ? arr[0] : arr;
+  }
 }
 
 module.exports = TotallyRandom;
+
+const r = new TotallyRandom();

@@ -56,8 +56,6 @@ Returns a random element from an array or an array of random array elements
 | count (Optional)  | Number  | The amount of elements to include in the returned array. Default = 1                            |
 | unique (Optional) | Boolean | Determines whether output array contains duplicate elements or unique elements. Default = false |
 
-#### Example
-
 ```javascript
 random.array(["Paul", "Chani", "Gurney"]);
 // Chani
@@ -78,8 +76,6 @@ Return a number, or array of numbers, within a given range.
 | num2             | Number | The ending number of the range                                      |
 | count (Optional) | Number | The amount of numbers to include in the returned array. Default = 1 |
 
-#### Example
-
 ```javascript
 random.between(25, 50);
 // 34
@@ -97,8 +93,6 @@ Return a boolean or array or booleans
 | Parameter        | Type   | Description                                                          |
 | ---------------- | ------ | -------------------------------------------------------------------- |
 | count (Optional) | Number | The amount of booleans to include in the returned array. Default = 1 |
-
-#### Example
 
 ```javascript
 random.boolean();
@@ -118,8 +112,6 @@ Returns a random user given data type based on altered chance
 | ---------------- | ------ | --------------------------------------------------------------------------------------------- |
 | arr              | Array  | The array of arrays of elements containing any data type and percent chance of being selected |
 | count (Optional) | Number | Return a data type chosen by an altered chance                                                |
-
-#### Example
 
 ```javascript
 random.chance([
@@ -151,8 +143,6 @@ Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | option (Optional) | String | The type of color value you would like returned. Default = "hex". Valid options: "hex", "rgb", "rgba", "hsl", "hsla" |
 
-#### Example
-
 ```javascript
 random.color();
 // #3bf93d
@@ -180,8 +170,6 @@ Returns a random number between 1-100, or an array of random numbers between 1-1
 | ---------------- | ------ | -------------------------------------------------------------------- |
 | count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
 
-#### Example
-
 ```javascript
 random.percent();
 // 27
@@ -200,8 +188,6 @@ Return a shuffled version of a given array using the Fisher-Yates Algorithm
 | --------- | ----- | -------------------------------- |
 | arr       | Array | The array of elements to shuffle |
 
-#### Example
-
 ```javascript
 random.shuffle([1, 2, 3, 4, 5]);
 // [3, 5, 2, 1, 4]
@@ -209,16 +195,14 @@ random.shuffle([1, 2, 3, 4, 5]);
 
 ## String
 
-### `.string([option = "alphanumeric"], [length = between(3, 24)])`
+### `.string([option = "alphanumeric"], [length = between(34, 24)])`
 
 Returns a random string.
 
 | Parameter         | Type   | Description                                                                                                              |
 | ----------------- | ------ | ------------------------------------------------------------------------------------------------------------------------ |
 | option (Optional) | String | The type of string you would like to return. Default = "alphanumeric". Valid options: "alphanumeric", "alpha", "numeric" |
-| length (Optional) | Number | The length you would like the string to be. Default = between(3, 24)                                                     |
-
-#### Example
+| length (Optional) | Number | The length you would like the string to be. Default = between(4, 24)                                                     |
 
 ```javascript
 random.string();
@@ -247,8 +231,6 @@ Returns a random number between 1 (or -1) and the number you specify, or an arra
 | ---------------- | ------ | ------------------------------------------------------------------- |
 | num              | Number | The maximum number to select from                                   |
 | count (Optional) | Number | The amount of numbers to include in the returned array. Default = 1 |
-
-#### Example
 
 ```javascript
 random.to(10);
