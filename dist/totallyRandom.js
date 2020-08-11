@@ -129,42 +129,33 @@ class TotallyRandom {
    */
 
   color(option = "hex") {
-    if (option === "hex") {
-      // returns random hex code (string)
-      return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
+    switch (option) {
+      case "rgb":
+        // returns random rgb color (string)
+        return `rgb(${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.between(0, 255)})`;
+      case "rgba":
+        // returns random rgba color (string)
+        return `rgba(${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.between(0, 255)}, \
+                ${this.randomizer().toFixed(2)})`;
+      case "hsl":
+        // returns random hsl color (string)
+        return `hsl(${this.between(0, 360)}, \
+                ${this.percent()}%, \
+                ${this.percent()}%)`;
+      case "hsla":
+        // returns random hsla color (string)
+        return `hsla(${this.between(0, 360)}, \
+                ${this.percent()}%, \
+                ${this.percent()}%, \
+                ${this.randomizer().toFixed(2)})`;
+      default:
+        // returns random hex code (string)
+        return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
     }
-    if (option === "rgb") {
-      // returns random rgb color (string)
-      return `rgb(
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}
-			)`;
-    }
-    if (option === "rgba") {
-      // returns random rgba color (string)
-      return `rgba(
-				${this.between(0, 255)}, 
-				${this.between(0, 255)}, 
-				${this.between(0, 255)},
-				${this.randomizer().toFixed(2)}
-			)`;
-    }
-    if (option === "hsl") {
-      // returns random hsl color (string)
-      return `hsl(
-				${this.between(0, 360)},
-				${this.percent()}%,
-				${this.percent()}%
-			)`;
-    }
-    // returns random hsla color (string)
-    return `hsla(
-				${this.between(0, 360)},
-				${this.percent()}%,
-				${this.percent()}%,
-				${this.randomizer().toFixed(2)}
-			)`;
   }
 
   /**
