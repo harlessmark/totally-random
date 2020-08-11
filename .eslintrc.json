@@ -8,6 +8,7 @@
 		"no-return-assign": "off",
 		"no-console": "error",
 		"no-plusplus": "off",
-		"no-shadow": "off"
+		"no-shadow": "off",
+		"no-bitwise": "off"
 	}
 }
