@@ -235,12 +235,10 @@ class TotallyRandom {
     switch (stringOption) {
       case "alpha":
         return generator(alphas, stringLength);
-      case "alphanumeric":
-        return generator(alphanums, stringLength);
       case "numeric":
         return generator(nums, stringLength);
       default:
-        return generator(alphas, stringLength);
+        return generator(alphanums, stringLength);
     }
   }
 
