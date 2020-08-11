@@ -277,5 +277,3 @@ class TotallyRandom {
 }
 
 module.exports = TotallyRandom;
-
-const r = new TotallyRandom();
