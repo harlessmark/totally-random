@@ -230,24 +230,24 @@ class TotallyRandom {
     const nums = [..."0123456789"];
     const alphanums = [...alphas, ...nums];
 
-    // set [length] equal to [option] and [option] to alphanumeric if only the [length] argument is provided
-    if (!isNaN(option)) {
-      length = option;
-      option = "alphanumeric";
-    }
+    // set stringLength equal to [option] and stringOption to alphanumeric if only the [length] argument is provided
+    const stringLength = !Number.isNaN(option) ? option : length;
+    const stringOption = !Number.isNaN(option) ? "alphanumeric" : option;
 
     const generator = (arr, len) =>
       [...Array(len)]
-        .map((ltr) => arr[(this.randomizer() * arr.length) | 0])
+        .map(() => arr[(this.randomizer() * arr.length) | 0])
         .join("");
 
-    switch (option) {
+    switch (stringOption) {
       case "alpha":
-        return generator(alphas, length);
+        return generator(alphas, stringLength);
       case "alphanumeric":
-        return generator(alphanums, length);
+        return generator(alphanums, stringLength);
       case "numeric":
-        return generator(nums, length);
+        return generator(nums, stringLength);
+      default:
+        return generator(alphas, stringLength);
     }
   }
 
