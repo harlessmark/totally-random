@@ -1,3 +1,5 @@
+const countError = new Error("count must be greater than 0");
+
 class TotallyRandom {
   // all numbers are inclusive
   // methods in alphabetical order
@@ -51,7 +53,7 @@ class TotallyRandom {
 
   between(num1, num2, count = 1) {
     if (num1 === num2) throw new Error("num1 cannot equal num2");
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -71,7 +73,7 @@ class TotallyRandom {
    */
 
   boolean(count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -96,7 +98,7 @@ class TotallyRandom {
    */
 
   chance(arr, count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
     // checks if sum of percentages is 100
     const total = arr.reduce((acc, curr) => acc + curr[1], 0);
     if (total !== 100) throw new Error("sum of percentages must equal 100");
@@ -167,7 +169,7 @@ class TotallyRandom {
    */
 
   percent(count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
 
     const arr = [];
 
@@ -252,7 +254,7 @@ class TotallyRandom {
    */
 
   to(num, count = 1) {
-    if (count < 1) throw new Error("count must be greater than 0");
+    if (count < 1) throw countError;
     if (num < 1) throw new Error("num must be a positive integer");
 
     const arr = [];
