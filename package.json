@@ -6,7 +6,7 @@
 	"browser": "./dist/browser.js",
 	"unpkg": "./dist/browser.js",
 	"scripts": {
-		"test": "mocha",
+		"test": "mocha dist/test.js",
 		"lint": "npx eslint dist/**",
 		"fix-lint": "npx eslint dist/** --fix"
 	},
