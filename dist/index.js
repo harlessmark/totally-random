@@ -1,1 +1,1 @@
-module.exports = require('./totallyRandom.js');
+module.exports = require("./totallyRandom.js");
