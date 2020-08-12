@@ -1,4 +1,4 @@
-const countError = new Error("count must be greater than 0");
+const countError = new Error("count must be greater than 1");
 
 class TotallyRandom {
   // all numbers are inclusive
