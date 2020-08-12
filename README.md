@@ -122,11 +122,12 @@ random.chance([
 ]);
 // Silenus
 
-random.chance([
-  ["Hoyt", 15],
-  ["Kassad", 30],
-  ["Silenus", 45],
-  "Weintraub", 10],
+random.chance(
+  [
+    ["Hoyt", 15],
+    ["Kassad", 30],
+    ["Silenus", 45],
+    ["Weintraub", 10],
   ],
   5
 );
