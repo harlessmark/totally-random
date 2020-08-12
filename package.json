@@ -7,7 +7,8 @@
 	"unpkg": "./dist/browser.js",
 	"scripts": {
 		"test": "mocha",
-		"lint": "npx eslint dist/**"
+		"lint": "npx eslint dist/**",
+		"fix-lint": "npx eslint dist/** --fix"
 	},
 	"repository": {
 		"type": "git",
