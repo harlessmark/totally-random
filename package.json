@@ -6,9 +6,9 @@
 	"browser": "./dist/browser.js",
 	"unpkg": "./dist/browser.js",
 	"scripts": {
-		"test": "mocha dist/test.js",
-		"lint": "npx eslint dist/**",
-		"fix-lint": "npx eslint dist/** --fix"
+		"test": "mocha tests/test.js",
+		"lint": "npx eslint dist/** tests/**",
+		"fix-lint": "npx eslint dist/** tests/** --fix"
 	},
 	"repository": {
 		"type": "git",
