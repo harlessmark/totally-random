@@ -224,8 +224,8 @@ class TotallyRandom {
     const alphanums = [...alphas, ...nums];
 
     // set stringLength equal to [option] and stringOption to alphanumeric if only the [length] argument is provided
-    const stringLength = !Number.isNaN(option) ? option : length;
-    const stringOption = !Number.isNaN(option) ? "alphanumeric" : option;
+    const stringLength = parseFloat(option) === +option ? option : length;
+    const stringOption = parseFloat(option) === +option ? "alphanumeric" : option;
 
     const generator = (arr, len) =>
       [...Array(len)]
