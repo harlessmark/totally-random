@@ -66,7 +66,7 @@ random.array(["Paul", "Chani", "Gurney"], 5);
 
 ## Between
 
-### `.between(num1, num2, [count = 1])`
+**`.between(num1, num2, [count = 1])`**
 
 Return a number, or array of numbers, within a given range.
 
@@ -86,7 +86,7 @@ random.between(100, 200, 3);
 
 ## Boolean
 
-### `.boolean([count = 1])`
+**`.boolean([count = 1])`**
 
 Return a boolean or array or booleans
 
@@ -104,7 +104,7 @@ random.boolean(5);
 
 ## Chance
 
-### `.chance(arr, [count = 1])`
+**`.chance(arr, [count = 1])`**
 
 Returns a random user given data type based on altered chance
 
@@ -136,7 +136,7 @@ random.chance(
 
 ## Color
 
-### `.color([option = "hex"])` | `.colour([option = "hex"])`
+**`.color([option = "hex"])` | `.colour([option = "hex"])`**
 
 Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 
@@ -163,7 +163,7 @@ random.color("hsla");
 
 ## Percent
 
-### `.percent([count = 1])`
+**`.percent([count = 1])`**
 
 Returns a random number between 1-100, or an array of random numbers between 1-100.
 
@@ -181,7 +181,7 @@ random.percent(5);
 
 ## Shuffle
 
-### `.shuffle(arr)`
+**`.shuffle(arr)`**
 
 Return a shuffled version of a given array using the Fisher-Yates Algorithm
 
@@ -196,7 +196,7 @@ random.shuffle([1, 2, 3, 4, 5]);
 
 ## String
 
-### `.string([option = "alphanumeric"], [length = between(34, 24)])`
+**`.string([option = "alphanumeric"], [length = between(34, 24)])`**
 
 Returns a random string.
 
@@ -224,7 +224,7 @@ random.string("alpha", 8);
 
 ## To
 
-### `.to(num)`
+**`.to(num)`**
 
 Returns a random number between 1 (or -1) and the number you specify, or an array of random numbers between 1 (or -1) and the number you specify.
 
