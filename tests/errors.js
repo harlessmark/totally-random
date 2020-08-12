@@ -28,9 +28,6 @@ describe("TotallyRandom", () => {
         "count must be greater than 1"
       );
     });
-    it("should return either true or false", () => {
-      expect(random.boolean()).to.be.oneOf([true, false]);
-    });
   });
   describe("#chance", () => {
     it("should throw an error if count < 1", () => {
@@ -58,12 +55,6 @@ describe("TotallyRandom", () => {
       expect(() => random.percent((count = 0.5))).to.throw(
         "count must be greater than 1"
       );
-    });
-    it("should return a number below 101", () => {
-      expect(random.percent()).to.be.below(101);
-    });
-    it("should return a number above 0", () => {
-      expect(random.percent()).to.be.above(0);
     });
   });
   describe("#shuffle", () => {
