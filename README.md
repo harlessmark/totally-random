@@ -196,7 +196,7 @@ random.shuffle([1, 2, 3, 4, 5]);
 
 ## String
 
-**`.string([option = "alphanumeric"], [length = between(34, 24)])`**
+**`.string([option = "alphanumeric"], [length = between(4, 24)])`**
 
 Returns a random string.
 
