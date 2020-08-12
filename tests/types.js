@@ -19,8 +19,8 @@ describe("TotallyRandom", () => {
     });
   });
   describe("#to", () => {
-    it("should return a number below 20 when num=20", () => {
-      expect(random.to(20)).to.be.below(20);
+    it("should return a number below 21 when num=20", () => {
+      expect(random.to(20)).to.be.below(21);
     });
     it("should return a number above 0 when num=20", () => {
       expect(random.to(20)).to.be.above(0);
