@@ -136,9 +136,9 @@ class TotallyRandom {
     };
 
     const getHslValue = () => {
-      const h = [this.between(0, 360)];
+      const h = this.between(0, 360);
       const sl = [...Array(2)].map(() => `${this.percent()}%`);
-      return [...h, ...sl].join(", ");
+      return [h, ...sl].join(", ");
     };
 
     switch (option) {
