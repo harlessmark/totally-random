@@ -14,12 +14,12 @@ describe("TotallyRandom", () => {
             expect(() => random.between(2, 2)).to.throw("num1 cannot equal num2")
         })
         it("should throw an error if count < 1", () => {
-            expect(() => random.between(2, 3, count=0.5)).to.throw("count must be greater than 0")
+            expect(() => random.between(2, 3, count=0.5)).to.throw("count must be greater than 1")
         })
     })
     describe("#boolean", () => {
         it("should throw an error if count < 1", () => {
-            expect(() => random.boolean(count=0.5)).to.throw("count must be greater than 0")
+            expect(() => random.boolean(count=0.5)).to.throw("count must be greater than 1")
         })
     })
     describe("#chance", () => {
@@ -27,7 +27,7 @@ describe("TotallyRandom", () => {
             expect(() => random.chance([
                 ["A", 30],
                 ["B", 70]
-            ], count=0.5)).to.throw("count must be greater than 0")
+            ], count=0.5)).to.throw("count must be greater than 1")
         })
         it("should throw an error when percentages do not add up to 100", () => {
             expect(() => random.chance([
@@ -38,7 +38,7 @@ describe("TotallyRandom", () => {
     })
     describe("#percent", () => {
         it("should throw an error when count < 1", () => {
-            expect(() => random.percent(count=0.5)).to.throw("count must be greater than 0")
+            expect(() => random.percent(count=0.5)).to.throw("count must be greater than 1")
         })
     })
     describe("#shuffle", () => {
@@ -53,7 +53,7 @@ describe("TotallyRandom", () => {
     })
     describe("#to", () => {
         it("should throw an error when count < 1", () => {
-            expect(() => random.to(3, count=0)).to.throw("count must be greater than 0")
+            expect(() => random.to(3, count=0)).to.throw("count must be greater than 1")
         })
         it("should throw an error when num < 1", () => {
             expect(() => random.to(-1)).to.throw("num must be a positive integer")
