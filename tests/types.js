@@ -7,7 +7,7 @@ const random = new TotallyRandom();
 describe("TotallyRandom", () => {
   describe("#boolean", () => {
     it("should return either true or false", () => {
-      expect(random.boolean()).to.be.oneOf([true, false]);
+      expect(random.boolean()).to.be.satisfy((e) => typeof e === "boolean");
     });
   });
   describe("#percent", () => {
@@ -24,6 +24,11 @@ describe("TotallyRandom", () => {
     });
     it("should return a number above 0 when num=20", () => {
       expect(random.to(20)).to.be.above(0);
+    });
+  });
+  describe("#string", () => {
+    it("should return a string", () => {
+      expect(random.string()).to.be.satisfy((e) => typeof e === "string");
     });
   });
 });
