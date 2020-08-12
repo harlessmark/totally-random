@@ -131,29 +131,25 @@ class TotallyRandom {
    */
 
   color(option = "hex") {
+    const getRgbValue = () => {
+      return [...Array(3)].map(() => this.between(0, 255)).join(", ");
+    };
+
+    const getHslValue = () => {
+      const h = [this.between(0, 360)];
+      const sl = [...Array(2)].map(() => `${this.percent()}%`);
+      return [...h, ...sl].join(", ");
+    };
+
     switch (option) {
       case "rgb":
-        // returns random rgb color (string)
-        return `rgb(${this.between(0, 255)}, \
-                ${this.between(0, 255)}, \
-                ${this.between(0, 255)})`;
+        return `rgb(${getRgbValue()})`;
       case "rgba":
-        // returns random rgba color (string)
-        return `rgba(${this.between(0, 255)}, \
-                ${this.between(0, 255)}, \
-                ${this.between(0, 255)}, \
-                ${this.randomizer().toFixed(2)})`;
+        return `rgba(${getRgbValue()}, ${this.randomizer().toFixed(2)})`;
       case "hsl":
-        // returns random hsl color (string)
-        return `hsl(${this.between(0, 360)}, \
-                ${this.percent()}%, \
-                ${this.percent()}%)`;
+        return `hsl(${getHslValue()})`;
       case "hsla":
-        // returns random hsla color (string)
-        return `hsla(${this.between(0, 360)}, \
-                ${this.percent()}%, \
-                ${this.percent()}%, \
-                ${this.randomizer().toFixed(2)})`;
+        return `hsla(${getHslValue()}, ${this.randomizer().toFixed(2)})`;
       default:
         // returns random hex code (string)
         return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
