@@ -46,7 +46,7 @@ const random = new TotallyRandom(randomFunction);
 
 ## Array
 
-### `.array(arr, [count = 1], [unique = false])`
+**`.array(arr, [count = 1], [unique = false])`**
 
 Returns a random element from an array or an array of random array elements
 
