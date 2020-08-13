@@ -157,6 +157,25 @@ class TotallyRandom {
   }
 
   /**
+   * // TODO: finish
+   * Return a random float value
+   *
+   * @param {number} [count=1] Amount of floats to return (optional)
+   *
+   * @returns {(number|array)} A random float or array of random floats
+   */
+
+  floatTo(num, count = 1) {
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(
+      () => this.to(num - 1) + this.randomizer()
+    );
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
    * Return a random percentage value
    *
    * @param {number} [count=1] Amount of numbers to return (optional)
@@ -250,7 +269,6 @@ class TotallyRandom {
 
   to(num, count = 1) {
     if (count < 1) throw countError;
-    if (num < 1) throw new Error("num must be a positive integer");
 
     const arr = [];
 
