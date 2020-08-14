@@ -111,8 +111,9 @@ class TotallyRandom {
    * Return a random hex code, RGB, RGBA, HSL, or HSLA color value
    *
    * @param {string} [option="hex"] Flag to change output type, valid options are: "hex", "rgb", "rgba", "hsl", "hsla" (optional)
+   * @param {number} [count=1] Amount of color strings to return
    *
-   * @returns {string} - A random hex, RGB, RGBA, HSL, or HSLA color value
+   * @returns {string|array} - A random hex, RGB, RGBA, HSL, or HSLA color value or array of values
    */
 
   color(option = "hex", count = 1) {
