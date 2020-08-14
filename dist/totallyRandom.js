@@ -18,27 +18,19 @@ class TotallyRandom {
    */
 
   array(arr, count = 1, unique = false) {
-    if (count === 1) {
-      // returns random element from [arr]
-      return arr[Math.floor(this.randomizer() * arr.length)];
-    }
-    // returns an array of [count] elements
-    let newArr = [];
-
-    for (let i = 0; i < count; i++) {
-      newArr.push(arr[Math.floor(this.randomizer() * arr.length)]);
+    if (count < 1) throw countError;
+    if (arr.length < count && unique) {
+      throw new Error(
+        "Array length must be larger than count if unique = true"
+      );
     }
 
-    if (unique) {
-      if (arr.length < count)
-        throw new Error(
-          "Array length must be larger than count if unique = true"
-        );
+    let newArr = [...Array(count)].map(() => arr[this.to(arr.length - 1)]);
 
-      newArr = [...new Set(newArr)];
-    }
+    // TODO: fix bug where unique array has less than [count] elements
+    if (unique) newArr = [...new Set(newArr)];
 
-    return newArr;
+    return count === 1 ? newArr[0] : newArr;
   }
 
   /**
@@ -55,11 +47,9 @@ class TotallyRandom {
     if (num1 === num2) throw new Error("num1 cannot equal num2");
     if (count < 1) throw countError;
 
-    const arr = [];
-
-    for (let i = 0; i < count; i++) {
-      arr.push(Math.round(this.randomizer() * (num1 - num2) + num2));
-    }
+    const arr = [...Array(count)].map(() =>
+      Math.round(this.randomizer() * (num1 - num2) + num2)
+    );
 
     return count === 1 ? arr[0] : arr;
   }
@@ -75,15 +65,10 @@ class TotallyRandom {
   boolean(count = 1) {
     if (count < 1) throw countError;
 
-    const arr = [];
-
-    for (let i = 0; i < count; i++) {
-      const oneOrTwo = this.to(2);
-
-      if (oneOrTwo === 1) {
-        arr.push(true);
-      } else arr.push(false);
-    }
+    const arr = [...Array(count)].map(() => {
+      if (this.to(2) === 1) return true;
+      return false;
+    });
 
     return count === 1 ? arr[0] : arr;
   }
@@ -130,7 +115,9 @@ class TotallyRandom {
    * @returns {string} - A random hex, RGB, RGBA, HSL, or HSLA color value
    */
 
-  color(option = "hex") {
+  color(option = "hex", count = 1) {
+    if (count < 1 || parseFloat(option) < 1) throw countError;
+
     const getRgbValue = () => {
       return [...Array(3)].map(() => this.between(0, 255)).join(", ");
     };
@@ -141,19 +128,28 @@ class TotallyRandom {
       return [h, ...sl].join(", ");
     };
 
-    switch (option) {
-      case "rgb":
-        return `rgb(${getRgbValue()})`;
-      case "rgba":
-        return `rgba(${getRgbValue()}, ${this.randomizer().toFixed(2)})`;
-      case "hsl":
-        return `hsl(${getHslValue()})`;
-      case "hsla":
-        return `hsla(${getHslValue()}, ${this.randomizer().toFixed(2)})`;
-      default:
-        // returns random hex code (string)
-        return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
-    }
+    const getColor = (c) => {
+      switch (c) {
+        case "rgb":
+          return `rgb(${getRgbValue()})`;
+        case "rgba":
+          return `rgba(${getRgbValue()}, ${this.randomizer().toFixed(2)})`;
+        case "hsl":
+          return `hsl(${getHslValue()})`;
+        case "hsla":
+          return `hsla(${getHslValue()}, ${this.randomizer().toFixed(2)})`;
+        default:
+          // returns random hex code (string)
+          return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
+      }
+    };
+
+    const colorCount = parseFloat(option) === +option ? option : count;
+    const colorOption = parseFloat(option) === +option ? "hex" : option;
+
+    const arr = [...Array(colorCount)].map(() => getColor(colorOption));
+
+    return colorCount === 1 ? arr[0] : arr;
   }
 
   /**
@@ -186,11 +182,9 @@ class TotallyRandom {
   percent(count = 1) {
     if (count < 1) throw countError;
 
-    const arr = [];
-
-    for (let i = 0; i < count; i++) {
-      arr.push(Math.round(this.randomizer() * 100));
-    }
+    const arr = [...Array(count)].map(() =>
+      Math.round(this.randomizer() * 100)
+    );
 
     return count === 1 ? arr[0] : arr;
   }
@@ -270,13 +264,9 @@ class TotallyRandom {
   to(num, count = 1) {
     if (count < 1) throw countError;
 
-    const arr = [];
-
-    for (let i = 0; i < count; i++) {
-      arr.push(
-        Math.round(Math.ceil(this.randomizer() * num + (num > 0 ? 1 : 0)) - 1)
-      );
-    }
+    const arr = [...Array(count)].map(() =>
+      Math.round(Math.ceil(this.randomizer() * num + (num > 0 ? 1 : 0)) - 1)
+    );
 
     return count === 1 ? arr[0] : arr;
   }
