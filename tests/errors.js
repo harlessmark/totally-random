@@ -71,14 +71,4 @@ describe("TotallyRandom", () => {
       );
     });
   });
-  describe("#to", () => {
-    it("should throw an error when count < 1", () => {
-      expect(() => random.to(3, (count = 0))).to.throw(
-        "count must be greater than 1"
-      );
-    });
-    it("should throw an error when num < 1", () => {
-      expect(() => random.to(-1)).to.throw("num must be a positive integer");
-    });
-  });
 });
