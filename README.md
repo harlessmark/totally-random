@@ -136,20 +136,23 @@ random.chance(
 
 ## Color
 
-**`.color([option = "hex"])` | `.colour([option = "hex"])`**
+**`.color([option = "hex"], [count = 1])` | `.colour([option = "hex"], [count = 1])`**
 
-Returns a random color in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
+Returns a random color, or array of colors, in the form of a Hexcode, RGB, RGBA, HSL, or HSLA value.
 
 | Parameter         | Type   | Description                                                                                                          |
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | option (Optional) | String | The type of color value you would like returned. Default = "hex". Valid options: "hex", "rgb", "rgba", "hsl", "hsla" |
-
+| count (Optional) | Number | TThe amount of color strings to include in the returned array. Default = 1 |
 ```javascript
 random.color();
 // #3bf93d
 
-random.color("rgb");
-// rgb(61, 134, 160)
+random.color(5);
+// [ '#117949', '#878dbc', '#f11955', '#1e729e', '#aa885f' ]
+
+random.color("rgb", 3);
+// [ 'rgb(0, 18, 127)', 'rgb(236, 237, 191)', 'rgb(157, 199, 22)' ]
 
 random.color("rgba");
 // rgb(227, 30, 44, 0.7)
