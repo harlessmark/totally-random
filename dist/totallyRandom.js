@@ -1,12 +1,285 @@
-;(function(root, factory) {
-  if (typeof define === 'function' && define.amd) {
-    define([], factory);
-  } else if (typeof exports === 'object') {
-    module.exports = factory();
-  } else {
-    root.TotallyRandom = factory();
+const countError = new Error("count must be greater than 1");
+
+class TotallyRandom {
+  // all numbers are inclusive
+  // methods in alphabetical order
+  constructor(randomizer = Math.random) {
+    this.randomizer = randomizer;
   }
-}(this, function() {
-"use strict";function _toConsumableArray(r){return _arrayWithoutHoles(r)||_iterableToArray(r)||_unsupportedIterableToArray(r)||_nonIterableSpread()}function _nonIterableSpread(){throw new TypeError("Invalid attempt to spread non-iterable instance.\nIn order to be iterable, non-array objects must have a [Symbol.iterator]() method.")}function _unsupportedIterableToArray(r,t){if(r){if("string"==typeof r)return _arrayLikeToArray(r,t);var e=Object.prototype.toString.call(r).slice(8,-1);return"Object"===e&&r.constructor&&(e=r.constructor.name),"Map"===e||"Set"===e?Array.from(r):"Arguments"===e||/^(?:Ui|I)nt(?:8|16|32)(?:Clamped)?Array$/.test(e)?_arrayLikeToArray(r,t):void 0}}function _iterableToArray(r){if("undefined"!=typeof Symbol&&Symbol.iterator in Object(r))return Array.from(r)}function _arrayWithoutHoles(r){if(Array.isArray(r))return _arrayLikeToArray(r)}function _arrayLikeToArray(r,t){(null==t||t>r.length)&&(t=r.length);for(var e=0,n=new Array(t);e<t;e++)n[e]=r[e];return n}function _classCallCheck(r,t){if(!(r instanceof t))throw new TypeError("Cannot call a class as a function")}function _defineProperties(r,t){for(var e=0;e<t.length;e++){var n=t[e];n.enumerable=n.enumerable||!1,n.configurable=!0,"value"in n&&(n.writable=!0),Object.defineProperty(r,n.key,n)}}function _createClass(r,t,e){return t&&_defineProperties(r.prototype,t),e&&_defineProperties(r,e),r}var countError=new Error("count must be greater than 1"),TotallyRandom=function(){function t(){var r=0<arguments.length&&void 0!==arguments[0]?arguments[0]:Math.random;_classCallCheck(this,t),this.randomizer=r}return _createClass(t,[{key:"array",value:function(r,t,e){var n=this,o=1<arguments.length&&void 0!==t?t:1,a=2<arguments.length&&void 0!==e&&e;if(o<1)throw countError;if(r.length<o&&a)throw new Error("Array length must be larger than count if unique = true");var u=_toConsumableArray(Array(o)).map(function(){return r[n.to(r.length-1)]});return a&&(u=_toConsumableArray(new Set(u))),1===o?u[0]:u}},{key:"between",value:function(r,t,e){var n=this,o=2<arguments.length&&void 0!==e?e:1;if(r===t)throw new Error("num1 cannot equal num2");if(o<1)throw countError;var a=_toConsumableArray(Array(o)).map(function(){return Math.round(n.randomizer()*(r-t)+t)});return 1===o?a[0]:a}},{key:"boolean",value:function(r){var t=this,e=0<arguments.length&&void 0!==r?r:1;if(e<1)throw countError;var n=_toConsumableArray(Array(e)).map(function(){return 1===t.to(2)});return 1===e?n[0]:n}},{key:"chance",value:function(r,t){var e=1<arguments.length&&void 0!==t?t:1;if(e<1)throw countError;if(100!==r.reduce(function(r,t){return r+t[1]},0))throw new Error("sum of percentages must equal 100");for(var n=[],o=r.sort(function(r,t){return r[1]-t[1]}),a=0;a<e;a++)for(var u=this.to(100),i=0,l=0;l<o.length;l++)if(u<=(i+=o[l][1])){n.push(o[l][0]);break}return 1===e?n[0][0]:n}},{key:"color",value:function(r,t){var e=this,n=0<arguments.length&&void 0!==r?r:"hex",o=1<arguments.length&&void 0!==t?t:1;if(o<1||parseFloat(n)<1)throw countError;function a(){return _toConsumableArray(Array(3)).map(function(){return e.between(0,255)}).join(", ")}function u(){var r=e.between(0,360),t=_toConsumableArray(Array(2)).map(function(){return"".concat(e.percent(),"%")});return[r].concat(_toConsumableArray(t)).join(", ")}var i=parseFloat(n)===+n?n:o,l=parseFloat(n)===+n?"hex":n,c=_toConsumableArray(Array(i)).map(function(){return function(r){switch(r){case"rgb":return"rgb(".concat(a(),")");case"rgba":return"rgba(".concat(a(),", ").concat(e.randomizer().toFixed(2),")");case"hsl":return"hsl(".concat(u(),")");case"hsla":return"hsla(".concat(u(),", ").concat(e.randomizer().toFixed(2),")");default:return"#".concat((16777215*e.randomizer()<<0).toString(16))}}(l)});return 1===i?c[0]:c}},{key:"floatTo",value:function(r,t){var e=this,n=1<arguments.length&&void 0!==t?t:1;if(n<1)throw countError;var o=_toConsumableArray(Array(n)).map(function(){return e.to(r-1)+e.randomizer()});return 1===n?o[0]:o}},{key:"percent",value:function(r){var t=this,e=0<arguments.length&&void 0!==r?r:1;if(e<1)throw countError;var n=_toConsumableArray(Array(e)).map(function(){return Math.round(100*t.randomizer())});return 1===e?n[0]:n}},{key:"shuffle",value:function(r){if(r.length<2)throw new Error("arr must contain at least two elements");for(var t,e,n=r.length-1;0<n;n--)t=Math.floor(this.randomizer()*(n+1)),e=r[n],r[n]=r[t],r[t]=e;return r}},{key:"string",value:function(r,t){var e=this,n=0<arguments.length&&void 0!==r?r:"alphanumeric",o=1<arguments.length&&void 0!==t?t:this.between(4,24);if(o<1)throw new Error("length must be at least 1");function a(r,t){return _toConsumableArray(Array(t)).map(function(){return r[e.randomizer()*r.length|0]}).join("")}var u=_toConsumableArray("ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"),i=_toConsumableArray("0123456789"),l=[].concat(_toConsumableArray(u),_toConsumableArray(i)),c=parseFloat(n)===+n?n:o;switch(parseFloat(n)===+n?"alphanumeric":n){case"alpha":return a(u,c);case"numeric":return a(i,c);default:return a(l,c)}}},{key:"to",value:function(r,t){var e=this,n=1<arguments.length&&void 0!==t?t:1;if(n<1)throw countError;var o=_toConsumableArray(Array(n)).map(function(){return Math.round(Math.ceil(e.randomizer()*r+(0<r?1:0))-1)});return 1===n?o[0]:o}}]),t}();TotallyRandom.prototype.colour=TotallyRandom.prototype.color;
-return TotallyRandom;
-}));
+
+  /**
+   * Returns a random user-given data type, or array of random user-given data types, from a given array
+   *
+   * @param {array} arr Array containing values to be randomly selected
+   * @param {number} [count=1] Amount of user-given data types to return (optional)
+   * @param {boolean} [unique=false] If output array should include duplicate user-given data types (optional)
+   *
+   * @returns {(*|Array)} A user-given data type, or array of random elements, of given length
+   */
+
+  array(arr, count = 1, unique = false) {
+    if (count < 1) throw countError;
+    if (arr.length < count && unique) {
+      throw new Error(
+        "Array length must be larger than count if unique = true"
+      );
+    }
+
+    let newArr = [...Array(count)].map(() => arr[this.to(arr.length - 1)]);
+
+    if (unique) {
+      newArr = [...new Set(newArr)];
+
+      while (newArr.length < count) {
+        const addElem = arr[this.to(arr.length - 1)];
+
+        if (!newArr.includes(addElem)) newArr.push(addElem);
+      }
+    }
+
+    return count === 1 ? newArr[0] : newArr;
+  }
+
+  /**
+   * Return a random number, or array of random numbers, within a given range
+   *
+   * @param {number} num1 First number of the range
+   * @param {number} num2 Last number of the range
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} A random number, or array of random numbers, within the specified range
+   */
+
+  between(num1, num2, count = 1) {
+    if (num1 === num2) throw new Error("num1 cannot equal num2");
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(() =>
+      Math.round(this.randomizer() * (num1 - num2) + num2)
+    );
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * Return a random boolean or array of random booleans
+   *
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(boolean|array)} A random boolean or array of booleans
+   */
+
+  boolean(count = 1) {
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(() => {
+      if (this.to(2) === 1) return true;
+      return false;
+    });
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * Return a random user-give data type, or an array of random user-given data types, based on a rigged chance
+   *
+   * @param {array} arr Array of arrays containing a data type and percent chance
+   * @param {number} [count=1] Amount of data types to return (optional)
+   *
+   * @returns {*} A random user-given data type or an array of random user-given data types
+   */
+
+  chance(arr, count = 1) {
+    if (count < 1) throw countError;
+    // checks if sum of percentages is 100
+    const total = arr.reduce((acc, curr) => acc + curr[1], 0);
+    if (total !== 100) throw new Error("sum of percentages must equal 100");
+
+    const newArr = [];
+    const sorted = arr.sort((a, b) => a[1] - b[1]);
+
+    for (let i = 0; i < count; i++) {
+      const percent = this.to(100);
+      let sum = 0;
+
+      for (let j = 0; j < sorted.length; j++) {
+        sum += sorted[j][1];
+        if (sum >= percent) {
+          newArr.push(sorted[j][0]);
+          break;
+        }
+      }
+    }
+
+    return count === 1 ? newArr[0][0] : newArr;
+  }
+
+  /**
+   * Return a random hex code, RGB, RGBA, HSL, or HSLA color value
+   *
+   * @param {string} [option="hex"] Flag to change output type, valid options are: "hex", "rgb", "rgba", "hsl", "hsla" (optional)
+   * @param {number} [count=1] Amount of color strings to return
+   *
+   * @returns {string|array} - A random hex, RGB, RGBA, HSL, or HSLA color value or array of values
+   */
+
+  color(option = "hex", count = 1) {
+    if (count < 1 || parseFloat(option) < 1) throw countError;
+
+    const getRgbValue = () => {
+      return [...Array(3)].map(() => this.between(0, 255)).join(", ");
+    };
+
+    const getHslValue = () => {
+      const h = this.between(0, 360);
+      const sl = [...Array(2)].map(() => `${this.percent()}%`);
+      return [h, ...sl].join(", ");
+    };
+
+    const getColor = (c) => {
+      switch (c) {
+        case "rgb":
+          return `rgb(${getRgbValue()})`;
+        case "rgba":
+          return `rgba(${getRgbValue()}, ${this.randomizer().toFixed(2)})`;
+        case "hsl":
+          return `hsl(${getHslValue()})`;
+        case "hsla":
+          return `hsla(${getHslValue()}, ${this.randomizer().toFixed(2)})`;
+        default:
+          // returns random hex code (string)
+          return `#${((this.randomizer() * 0xffffff) << 0).toString(16)}`;
+      }
+    };
+
+    const colorCount = parseFloat(option) === +option ? option : count;
+    const colorOption = parseFloat(option) === +option ? "hex" : option;
+
+    const arr = [...Array(colorCount)].map(() => getColor(colorOption));
+
+    return colorCount === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * // TODO: finish
+   * Return a random float value
+   *
+   * @param {number} [count=1] Amount of floats to return (optional)
+   *
+   * @returns {(number|array)} A random float or array of random floats
+   */
+
+  floatTo(num, count = 1) {
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(
+      () => this.to(num - 1) + this.randomizer()
+    );
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * Return a random percentage value
+   *
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} A random number, or array of random numbers, between 0 and 100
+   */
+
+  percent(count = 1) {
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(() =>
+      Math.round(this.randomizer() * 100)
+    );
+
+    return count === 1 ? arr[0] : arr;
+  }
+
+  /**
+   * Return a shuffled array of a given array using the Fisher-Yates Algorithm
+   *
+   * @param {array} arr Array of values to shuffle
+   *
+   * @returns {array} A shuffled array
+   */
+
+  shuffle(arr) {
+    if (arr.length < 2) {
+      throw new Error("arr must contain at least two elements");
+    }
+
+    let j;
+    let x;
+    let i;
+
+    for (i = arr.length - 1; i > 0; i--) {
+      j = Math.floor(this.randomizer() * (i + 1));
+      x = arr[i];
+      arr[i] = arr[j];
+      arr[j] = x;
+    }
+
+    return arr;
+  }
+
+  /**
+   * Return a string
+   *
+   * @param {string} [option="alphanumeric"] Specifies the type of string, valid options are: "alphanumeric", "alpha", "numeric" (optional)
+   * @param {number} [length=0] Specifies the length of the string (optional)
+   *
+   * @returns {string} - A random string
+   */
+
+  string(option = "alphanumeric", length = this.between(4, 24)) {
+    if (length < 1) throw new Error("length must be at least 1");
+
+    const alphas = [..."ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz"];
+    const nums = [..."0123456789"];
+    const alphanums = [...alphas, ...nums];
+
+    // set stringLength equal to [option] and stringOption to alphanumeric if only the [length] argument is provided
+    const stringLength = parseFloat(option) === +option ? option : length;
+    const stringOption =
+      parseFloat(option) === +option ? "alphanumeric" : option;
+
+    const generator = (arr, len) =>
+      [...Array(len)]
+        .map(() => arr[(this.randomizer() * arr.length) | 0])
+        .join("");
+
+    switch (stringOption) {
+      case "alpha":
+        return generator(alphas, stringLength);
+      case "numeric":
+        return generator(nums, stringLength);
+      default:
+        return generator(alphanums, stringLength);
+    }
+  }
+
+  /**
+   * Return a random number between 1 and positive number or -1 and negative number
+   *
+   * @param {number} num Max number of the range excluding 0
+   * @param {number} [count=1] Amount of numbers to return (optional)
+   *
+   * @returns {(number|array)} - A random number or array of numbers
+   */
+
+  to(num, count = 1) {
+    if (count < 1) throw countError;
+
+    const arr = [...Array(count)].map(() =>
+      Math.round(Math.ceil(this.randomizer() * num + (num > 0 ? 1 : 0)) - 1)
+    );
+
+    return count === 1 ? arr[0] : arr;
+  }
+}
+
+TotallyRandom.prototype.colour = TotallyRandom.prototype.color;
+
+module.exports = TotallyRandom;
