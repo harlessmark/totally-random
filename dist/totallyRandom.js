@@ -27,8 +27,15 @@ class TotallyRandom {
 
     let newArr = [...Array(count)].map(() => arr[this.to(arr.length - 1)]);
 
-    // TODO: fix bug where unique array has less than [count] elements
-    if (unique) newArr = [...new Set(newArr)];
+    if (unique) {
+      newArr = [...new Set(newArr)];
+
+      while (newArr.length < count) {
+        const addElem = arr[this.to(arr.length - 1)];
+
+        if (!newArr.includes(addElem)) newArr.push(addElem);
+      }
+    }
 
     return count === 1 ? newArr[0] : newArr;
   }
