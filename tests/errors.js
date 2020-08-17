@@ -1,6 +1,6 @@
 /* eslint-disable no-undef */
 const { expect } = require("chai");
-const TotallyRandom = require("../dist/index.js");
+const TotallyRandom = require("../src/index.js");
 
 const random = new TotallyRandom();
 

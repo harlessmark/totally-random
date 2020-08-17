@@ -22,6 +22,9 @@ exports.default = function () {
         exports(file) {
           return "TotallyRandom";
         },
+        namespace(file) {
+          return "TotallyRandom";
+        }
       })
     )
     .pipe(dest("dist/"));
