@@ -10,12 +10,12 @@ A utility class to help with random value generation.
 - [Importing](https://github.com/superhackerboy/totally-random#Importing)
 - [Functions](https://github.com/superhackerboy/totally-random#Between)
   - [Array](https://github.com/superhackerboy/totally-random#Array)
-  - [Between](https://github.com/superhackerboy/totally-random#Between)
+  - [Between (Number)](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
   - [Chance](https://github.com/superhackerboy/totally-random#Chance)
-  - [Color](https://github.com/superhackerboy/totally-random#Color)
+  - [Color (String)](https://github.com/superhackerboy/totally-random#Color)
   - [Percentage](https://github.com/superhackerboy/totally-random#Percent)
-  - [Shuffle](https://github.com/superhackerboy/totally-random#Shuffle)
+  - [Shuffle (Array)](https://github.com/superhackerboy/totally-random#Shuffle)
   - [String](https://github.com/superhackerboy/totally-random#String)
   - [To (Number)](https://github.com/superhackerboy/totally-random#To)
 - [Contributing](https://github.com/superhackerboy/totally-random#Contributing)
@@ -143,7 +143,8 @@ Returns a random color, or array of colors, in the form of a Hexcode, RGB, RGBA,
 | Parameter         | Type   | Description                                                                                                          |
 | ----------------- | ------ | -------------------------------------------------------------------------------------------------------------------- |
 | option (Optional) | String | The type of color value you would like returned. Default = "hex". Valid options: "hex", "rgb", "rgba", "hsl", "hsla" |
-| count (Optional) | Number | TThe amount of color strings to include in the returned array. Default = 1 |
+| count (Optional)  | Number | TThe amount of color strings to include in the returned array. Default = 1                                           |
+
 ```javascript
 random.color();
 // #3bf93d
@@ -248,11 +249,7 @@ random.to(-99, 3);
 
 ## Contributing
 
-Pull requests are welcome if they are related to practical random generation.
-
-For major changes, please open an issue first to discuss what you would like to change.
-
-Please check the `CONTRIBUTING.md` for more details.
+Pull requests are welcome if they are related to practical random generation. For major changes, please open an issue first to discuss what you would like to change. Please check the `CONTRIBUTING.md` for more details.
 
 ---
 
