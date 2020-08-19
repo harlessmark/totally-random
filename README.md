@@ -8,7 +8,7 @@ A utility class to help with random value generation.
 
 - [Installation](https://github.com/superhackerboy/totally-random#Installation)
 - [Importing](https://github.com/superhackerboy/totally-random#Importing)
-- [Functions](https://github.com/superhackerboy/totally-random#Between)
+- [Methods](https://github.com/superhackerboy/totally-random#Array)
   - [Array](https://github.com/superhackerboy/totally-random#Array)
   - [Between (Number)](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
