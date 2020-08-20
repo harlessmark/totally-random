@@ -1,14 +1,15 @@
 {
-	"extends": ["airbnb", "prettier"],
-	"plugins": ["prettier"],
-	"rules": {
-		"no-restricted-globals": "warn",
-		"prettier/prettier": "error",
-		"no-param-reassign": "warn",
-		"no-return-assign": "off",
-		"no-console": "error",
-		"no-plusplus": "off",
-		"no-shadow": "off",
-		"no-bitwise": "off"
-	}
+  "extends": ["airbnb", "prettier"],
+  "plugins": ["prettier"],
+  "rules": {
+    "no-restricted-globals": "warn",
+    "no-unused-expressions": "off",
+    "prettier/prettier": "error",
+    "no-param-reassign": "warn",
+    "no-return-assign": "off",
+    "no-console": "error",
+    "no-plusplus": "off",
+    "no-shadow": "off",
+    "no-bitwise": "off"
+  }
 }

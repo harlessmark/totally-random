@@ -9,15 +9,20 @@ A utility class to help with random value generation.
 - [Installation](https://github.com/superhackerboy/totally-random#Installation)
 - [Importing](https://github.com/superhackerboy/totally-random#Importing)
 - [Methods](https://github.com/superhackerboy/totally-random#Array)
+
   - [Array](https://github.com/superhackerboy/totally-random#Array)
   - [Between (Number)](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
   - [Chance (\*)](https://github.com/superhackerboy/totally-random#Chance)
   - [Color (String)](https://github.com/superhackerboy/totally-random#Color)
+  - [Float Between (Number)](<https://github.com/superhackerboy/totally-random#Float Between>)
+  - [Float Percent (Number)](<https://github.com/superhackerboy/totally-random#Float Percent>)
+  - [Float To (Number)](<https://github.com/superhackerboy/totally-random#Float To>)
   - [Percentage (Number)](https://github.com/superhackerboy/totally-random#Percent)
   - [Shuffle (Array)](https://github.com/superhackerboy/totally-random#Shuffle)
   - [String](https://github.com/superhackerboy/totally-random#String)
   - [To (Number)](https://github.com/superhackerboy/totally-random#To)
+
 - [Contributing](https://github.com/superhackerboy/totally-random#Contributing)
 - [License](https://github.com/superhackerboy/totally-random#License)
 
@@ -163,6 +168,75 @@ random.color("hsl");
 
 random.color("hsla");
 // hsla(328, 72%, 44%, 0.8)
+```
+
+## Float Between
+
+**`.floatBetween(num1, num2, [count = 1])`**
+
+Return a floating number, or array of floating numbers, within a given range.
+
+| Parameter        | Type   | Description                                                         |
+| ---------------- | ------ | ------------------------------------------------------------------- |
+| num1             | Number | The beginning number of the range                                   |
+| num2             | Number | The ending number of the range                                      |
+| count (Optional) | Number | The amount of numbers to include in the returned array. Default = 1 |
+
+```javascript
+random.floatBetween(25, 50);
+// 46.868391548018025
+
+random.floatBetween(100, 200, 3);
+//  [
+//    110.7345996614564,
+//    144.02195688891862,
+//    166.7222947358983
+//  ]
+```
+
+## Float Percent
+
+**`.floatPercent([count = 1])`**
+
+Returns a random floating number between 1-100, or an array of random floating numbers between 1-100.
+
+| Parameter        | Type   | Description                                                          |
+| ---------------- | ------ | -------------------------------------------------------------------- |
+| count (Optional) | Number | The amount of elements to include in the returned array. Default = 1 |
+
+```javascript
+random.floatPercent();
+// 31.20330415243886
+
+random.floatPercent(5);
+//  [
+//    31.19643983316984,
+//    59.981506602103664,
+//    3.179024087615012
+//  ]
+```
+
+## Float To
+
+**`.floatTo(num)`**
+
+Returns a random floating number between 1 (or -1) and the number you specify, or an array of random floating numbers between 1 (or -1) and the number you specify.
+
+| Parameter        | Type   | Description                                                         |
+| ---------------- | ------ | ------------------------------------------------------------------- |
+| num              | Number | The maximum number to select from                                   |
+| count (Optional) | Number | The amount of numbers to include in the returned array. Default = 1 |
+
+```javascript
+random.floatTo(10);
+// 6.5380310716535646
+
+random.floatTo(-99, 3);
+//  [
+//    -59.29789405751423,
+//    -25.36979445038661,
+//    -19.477123607499205
+//  ]
 ```
 
 ## Percent
