@@ -13,7 +13,7 @@ A utility class to help with random value generation.
   - [Array](https://github.com/superhackerboy/totally-random#Array)
   - [Between (Number)](https://github.com/superhackerboy/totally-random#Between)
   - [Boolean](https://github.com/superhackerboy/totally-random#Boolean)
-  - [Chance (*)](https://github.com/superhackerboy/totally-random#Chance)
+  - [Chance (\*)](https://github.com/superhackerboy/totally-random#Chance)
   - [Color (String)](https://github.com/superhackerboy/totally-random#Color)
   - [Float Between (Number)](https://github.com/superhackerboy/totally-random#Float-Between)
   - [Float Percent (Number)](https://github.com/superhackerboy/totally-random#Float-Percent)
