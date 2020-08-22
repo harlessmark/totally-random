@@ -1,6 +1,6 @@
 {
   "name": "totally-random",
-  "version": "1.2",
+  "version": "1.2.0",
   "description": "A utility class to help with random number generation.",
   "main": "./dist/index.js",
   "scripts": {
