@@ -1,8 +1,4 @@
-# totally-random
-
-A utility class to help with random value generation.
-
----
+![](https://i.imgur.com/Ok99LdC.png)
 
 ## Table of Contents
 
