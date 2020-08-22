@@ -1,51 +1,51 @@
 {
-	"name": "totally-random",
-	"version": "1.1.2",
-	"description": "A utility class to help with random number generation.",
-	"main": "./dist/index.js",
-	"scripts": {
-		"test": "mocha tests/**",
-		"lint": "npx eslint gulpfile.js src/** tests/**",
-		"fix-lint": "npx eslint gulpfile.js src/** tests/** --fix",
-		"prepublish": "gulp",
-		"build": "gulp"
-	},
-	"repository": {
-		"type": "git",
-		"url": "git+https://github.com/superhackerboy/totally-random.git"
-	},
-	"author": "Mark Harless",
-	"license": "MIT",
-	"bugs": {
-		"url": "https://github.com/superhackerboy/totally-random/issues"
-	},
-	"homepage": "https://github.com/superhackerboy/totally-random#readme",
-	"keywords": [
-		"random",
-		"javascript",
-		"math",
-		"number",
-		"generator"
-	],
-	"devDependencies": {
-		"@babel/core": "^7.11.1",
-		"@babel/preset-env": "^7.11.0",
-		"chai": "^4.2.0",
-		"eslint": "^7.2.0",
-		"eslint-config-airbnb": "^18.2.0",
-		"eslint-config-node": "^4.1.0",
-		"eslint-config-prettier": "^6.11.0",
-		"eslint-plugin-import": "^2.22.0",
-		"eslint-plugin-jsx-a11y": "^6.3.1",
-		"eslint-plugin-node": "^11.1.0",
-		"eslint-plugin-prettier": "^3.1.4",
-		"eslint-plugin-react": "^7.20.5",
-		"gulp": "^4.0.2",
-		"gulp-babel": "^8.0.0",
-		"gulp-eslint": "^6.0.0",
-		"gulp-uglify": "^3.0.2",
-		"gulp-umd": "^2.0.0",
-		"mocha": "^8.1.1",
-		"prettier": "^2.0.5"
-	}
+  "name": "totally-random",
+  "version": "1.2",
+  "description": "A utility class to help with random number generation.",
+  "main": "./dist/index.js",
+  "scripts": {
+    "test": "mocha tests/**",
+    "lint": "npx eslint gulpfile.js src/** tests/**",
+    "fix-lint": "npx eslint gulpfile.js src/** tests/** --fix",
+    "prepublish": "gulp",
+    "build": "gulp"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/superhackerboy/totally-random.git"
+  },
+  "author": "Mark Harless",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/superhackerboy/totally-random/issues"
+  },
+  "homepage": "https://github.com/superhackerboy/totally-random#readme",
+  "keywords": [
+    "random",
+    "javascript",
+    "math",
+    "number",
+    "generator"
+  ],
+  "devDependencies": {
+    "@babel/core": "^7.11.1",
+    "@babel/preset-env": "^7.11.0",
+    "chai": "^4.2.0",
+    "eslint": "^7.2.0",
+    "eslint-config-airbnb": "^18.2.0",
+    "eslint-config-node": "^4.1.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-jsx-a11y": "^6.3.1",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-react": "^7.20.5",
+    "gulp": "^4.0.2",
+    "gulp-babel": "^8.0.0",
+    "gulp-eslint": "^6.0.0",
+    "gulp-uglify": "^3.0.2",
+    "gulp-umd": "^2.0.0",
+    "mocha": "^8.1.1",
+    "prettier": "^2.0.5"
+  }
 }
