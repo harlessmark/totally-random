@@ -319,7 +319,7 @@ random.to(-99, 3);
 
 ## Contributing
 
-Pull requests are welcome if they are related to practical random generation. For major changes, please open an issue first to discuss what you would like to change. Please check the `CONTRIBUTING.md` for more details.
+Pull requests are welcome if they are related to practical random generation. For major changes, please open an issue first to discuss what you would like to change.
 
 ---
 
