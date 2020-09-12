@@ -1,5 +1,7 @@
 export = TotallyRandom;
 
+type Color = "hex" | "rgb" | "rgba" | "hsl" | "hsla";
+
 declare class TotallyRandom {
   constructor(randomizer?: () => number);
 
@@ -13,10 +15,7 @@ declare class TotallyRandom {
 
   chance<T>(arr: (T | number)[][], count?: number): T;
 
-  color(
-    option?: "hex" | "rgb" | "rgba" | "hsl" | "hsla",
-    count?: number
-  ): string | string[];
+  color(option?: Color, count?: number): string | string[];
 
   floatTo(num: number, count?: number): number | number[];
 
@@ -31,8 +30,5 @@ declare class TotallyRandom {
 
   to(num: number, count?: number): number | number[];
 
-  colour(
-    option?: "hex" | "rgb" | "rgba" | "hsl" | "hsla",
-    count?: number
-  ): string | string[];
+  colour(option?: Color, count?: number): string | string[];
 }
