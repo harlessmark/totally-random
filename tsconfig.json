@@ -1,9 +1,9 @@
 {
-    "compilerOptions": {
-        "moduleResolution": "node",
-        "module": "CommonJS",
-        "target": "ESNext",
-        "sourceMap": false,
-        "declaration": false
-    }
+  "compilerOptions": {
+    "moduleResolution": "node",
+    "module": "CommonJS",
+    "target": "ESNext",
+    "sourceMap": false,
+    "declaration": false
+  }
 }
