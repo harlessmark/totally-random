@@ -13,7 +13,7 @@ declare class TotallyRandom {
 
   boolean(count?: number): boolean | boolean[];
 
-  chance<T>(arr: (T | number)[][], count?: number): T;
+  chance<T>(arr: [T, number][], count?: number): T;
 
   color(option?: Color, count?: number): string | string[];
 
