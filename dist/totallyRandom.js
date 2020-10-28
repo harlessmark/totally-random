@@ -25,7 +25,9 @@ class TotallyRandom {
       );
     }
 
-    let newArr = [...Array(count)].map(() => arr[this.to(arr.length - 1)]);
+    let newArr = [...Array(count)].map(
+      () => arr[this.between(0, arr.length - 1)]
+    );
 
     if (unique) {
       newArr = [...new Set(newArr)];
@@ -136,7 +138,7 @@ class TotallyRandom {
       return [h, ...sl].join(", ");
     };
 
-    const getColor = (c) => {
+    const getColor = c => {
       switch (c) {
         case "rgb":
           return `rgb(${getRgbValue()})`;

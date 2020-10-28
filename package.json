@@ -1,6 +1,6 @@
 {
   "name": "totally-random",
-  "version": "1.2.0",
+  "version": "1.2.2",
   "description": "Easier JavaScript randomization",
   "main": "./dist/index.js",
   "scripts": {
