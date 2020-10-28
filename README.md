@@ -41,6 +41,15 @@ All numbers are _inclusive_. If you use an API or another technique to get rando
 const random = new TotallyRandom(randomFunction);
 ```
 
+### Browser Usage
+
+```javascript
+const TotallyRandom = require("totally-random");
+const random = new TotallyRandom();
+```
+
+You can use [browserify](https://github.com/browserify/browserify) to use this package in the browser.
+
 ---
 
 ## Array
