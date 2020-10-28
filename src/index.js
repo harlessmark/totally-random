@@ -138,7 +138,7 @@ class TotallyRandom {
       return [h, ...sl].join(", ");
     };
 
-    const getColor = c => {
+    const getColor = (c) => {
       switch (c) {
         case "rgb":
           return `rgb(${getRgbValue()})`;
